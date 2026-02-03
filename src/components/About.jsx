@@ -109,7 +109,7 @@ const About = () => {
               {/* Main Image Container */}
               <div className="relative h-full rounded-2xl overflow-hidden bg-forge-dark">
                 <img
-                  src="/assets/Graphic (11).png"
+                  src="/Graphic (11).png"
                   alt="Design Forge Logo"
                   className="absolute inset-0 w-full h-full object-contain p-16 opacity-90"
                 />

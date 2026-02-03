@@ -17,7 +17,7 @@ const LoadingScreen = () => {
           className="relative"
         >
           <motion.img
-            src="/assets/Graphic (11).png"
+            src="/Graphic (11).png"
             alt="Design Forge"
             className="w-32 h-32 object-contain"
             animate={{

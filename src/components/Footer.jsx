@@ -58,7 +58,7 @@ const Footer = () => {
           <div className="col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <img
-                src="/assets/Graphic (11).png"
+                src="/Graphic (11).png"
                 alt="Design Forge"
                 className="h-12 w-12 object-contain"
               />
@@ -132,7 +132,7 @@ const Footer = () => {
         {/* Large Watermark Logo */}
         <div className="absolute bottom-0 right-0 opacity-[0.02] pointer-events-none">
           <img
-            src="/assets/Graphic (11).png"
+            src="/Graphic (11).png"
             alt=""
             className="w-96 h-96 object-contain"
           />

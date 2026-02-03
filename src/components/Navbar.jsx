@@ -70,7 +70,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.98 }}
             >
               <img
-                src="/assets/Graphic (11).png"
+                src="/Graphic (11).png"
                 alt="Design Forge"
                 className="h-10 w-10 object-contain transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(177,18,38,0.5)]"
               />
