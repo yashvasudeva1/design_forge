@@ -14,7 +14,7 @@ const projects = [
     id: 1,
     title: 'Menu',
     category: 'Print',
-    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141043/Brown_with_Photo_Chocolate_Dessert_Menu_zqneta.jpg'),
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770142535/Brown_with_Photo_Chocolate_Dessert_Menu_1_iee62s.jpg'),
     description: 'Elegant menu design for chocolate desserts',
     height: 'min-h-[400px]'
   },
