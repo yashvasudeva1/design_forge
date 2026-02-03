@@ -9,7 +9,7 @@ const projects = [
     id: 1,
     title: 'Menu',
     category: 'Print',
-    image: '/portfolio/Brown with Photo Chocolate Dessert Menu.jpg',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141043/Brown_with_Photo_Chocolate_Dessert_Menu_zqneta.jpg',
     description: 'Elegant menu design for chocolate desserts',
     height: 'min-h-[400px]'
   },
@@ -17,7 +17,7 @@ const projects = [
     id: 2,
     title: 'Story Design',
     category: 'Digital',
-    image: '/portfolio/Copy of DSA (Your Story).jpg',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141058/Copy_of_DSA_Your_Story_xmgjeg.jpg',
     description: 'Creative story design for social media',
     height: 'min-h-[500px]'
   },
@@ -25,7 +25,7 @@ const projects = [
     id: 3,
     title: 'Posters',
     category: 'Print',
-    image: '/portfolio/Peace (1).jpg',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141057/Peace_1_qge5wo.jpg',
     description: 'Creative poster design collection',
     height: 'min-h-[350px]'
   },
@@ -33,7 +33,7 @@ const projects = [
     id: 4,
     title: 'Wedding Invitation',
     category: 'Print',
-    image: '/portfolio/Purple and Green Floral Illustrated Indian Wedding Ceremony Invitation.jpg',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141510/Purple_and_Green_Floral_Illustrated_Indian_Wedding_Ceremony_Invitation_2_qoiprn.jpg',
     description: 'Floral illustrated Indian wedding ceremony invitation',
     height: 'min-h-[450px]'
   },
@@ -41,7 +41,7 @@ const projects = [
     id: 5,
     title: 'T-Shirt Designs',
     category: 'Branding',
-    image: '/portfolio/tshirt designs (2).png',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141045/tshirt_designs_2_ylervv.png',
     description: 'Creative t-shirt design collection',
     height: 'min-h-[350px]'
   },
@@ -49,7 +49,7 @@ const projects = [
     id: 6,
     title: 'Minimalist Post',
     category: 'Digital',
-    image: '/portfolio/Untitled design (17).jpg',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141044/Untitled_design_17_umjsaa.jpg',
     description: 'Modern minimalist post design',
     height: 'min-h-[350px]'
   },
@@ -57,7 +57,7 @@ const projects = [
     id: 7,
     title: 'Personalised Gifts',
     category: 'Branding',
-    image: '/portfolio/Untitled design (19).jpg',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141055/Untitled_design_19_fwndgc.jpg',
     description: 'Custom personalised gift designs',
     height: 'min-h-[350px]'
   },
@@ -65,7 +65,7 @@ const projects = [
     id: 8,
     title: 'Logo Design',
     category: 'Logos',
-    image: '/portfolio/Elysium Logo (1).png',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141043/Elysium_Logo_1_l5lcjr.png',
     description: 'Professional logo design',
     height: 'min-h-[300px]'
   },
@@ -73,7 +73,7 @@ const projects = [
     id: 9,
     title: 'Research Poster',
     category: 'Print',
-    image: '/portfolio/Orange Blue and Yellow Minimal Geometry Landscape University Research Poster.jpg',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141054/Orange_Blue_and_Yellow_Minimal_Geometry_Landscape_University_Research_Poster_z9rcfh.jpg',
     description: 'University research poster design',
     height: 'min-h-[400px]'
   },
@@ -81,7 +81,7 @@ const projects = [
     id: 10,
     title: 'Attractive Pamphlets',
     category: 'Print',
-    image: '/portfolio/Cirola Front.jpg',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141509/Cirola_Front_1_qxbppt.jpg',
     description: 'Eye-catching pamphlet designs',
     height: 'min-h-[400px]'
   },
@@ -89,7 +89,7 @@ const projects = [
     id: 11,
     title: 'Banners & Boards',
     category: 'Print',
-    image: '/portfolio/AGGARWAL LIVING.jpg',
+    image: 'https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141643/AGGARWAL_LIVING_cjuq9v.jpg',
     description: 'Professional banners and boards design',
     height: 'min-h-[350px]'
   }

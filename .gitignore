@@ -62,3 +62,6 @@ coverage/
 *.webm
 *.flv
 recordings/
+
+# Portfolio images (hosted on Cloudinary)
+portfolio/
