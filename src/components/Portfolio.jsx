@@ -62,7 +62,7 @@ const projects = [
     id: 7,
     title: 'Personalised Gifts',
     category: 'Branding',
-    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141055/Untitled_design_19_fwndgc.jpg'),
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770142411/Untitled_design_19_1_ka19lb.jpg'),
     description: 'Custom personalised gift designs',
     height: 'min-h-[350px]'
   },
