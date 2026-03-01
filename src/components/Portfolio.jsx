@@ -288,7 +288,7 @@ const projects = [
     description: 'Gold elegant appreciation certificate design',
     height: 'min-h-[350px]',
     details: {
-      client: 'Corporate Client',
+      client: 'World College of Medical Science',
       duration: '2 days',
       whatIDid: [
         'Designed elegant gold-themed certificate',
@@ -300,7 +300,7 @@ const projects = [
   },
   {
     id: 17,
-    title: 'College Certificate',
+    title: 'Appreciation Certificate',
     category: 'Certificates',
     image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372770/WORLD_COLLEGE_OF_MEDICAL_SCIENCE_ag08sm.jpg'),
     description: 'Professional college certificate design',
@@ -324,7 +324,7 @@ const projects = [
     description: 'Educational Instagram post about APIs',
     height: 'min-h-[350px]',
     details: {
-      client: 'Tech Education',
+      client: 'Namespace BPIT',
       duration: '1 day',
       whatIDid: [
         'Created informative social media content',
@@ -336,13 +336,13 @@ const projects = [
   },
   {
     id: 19,
-    title: 'Branding Mistakes Post',
+    title: 'DevOps Post',
     category: 'Digital',
     image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372785/Blue_Modern_Branding_Mistakes_Instagram_Post_e2fnue.jpg'),
-    description: 'Blue modern branding mistakes Instagram post',
+    description: 'Informational DevOps Instagram post',
     height: 'min-h-[350px]',
     details: {
-      client: 'Design Education',
+      client: 'Namespace BPIT',
       duration: '1 day',
       whatIDid: [
         'Created educational branding content',
@@ -360,7 +360,7 @@ const projects = [
     description: 'Poster about tackling lack of education',
     height: 'min-h-[400px]',
     details: {
-      client: 'Educational Initiative',
+      client: 'S.D. Public School',
       duration: '2 days',
       whatIDid: [
         'Designed impactful awareness poster',

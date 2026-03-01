@@ -209,46 +209,77 @@ const Process = () => {
         </div>
 
         {/* Mobile Timeline */}
-        <div className="lg:hidden space-y-6">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.id}
-              initial={{ opacity: 0, x: -30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="relative pl-12"
-            >
-              {/* Vertical Line */}
-              {index < steps.length - 1 && (
-                <div className="absolute left-5 top-16 bottom-0 w-0.5 bg-white/10" />
-              )}
+        <div className="lg:hidden space-y-4">
+          {/* Mobile Step Selector */}
+          <div className="flex overflow-x-auto gap-2 pb-4 scrollbar-hide">
+            {steps.map((step) => (
+              <button
+                key={step.id}
+                onClick={() => setActiveStep(step.id)}
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
+                  ${activeStep === step.id 
+                    ? 'bg-forge-crimson text-white' 
+                    : 'bg-white/5 text-white/60 border border-white/10'}`}
+              >
+                {step.title}
+              </button>
+            ))}
+          </div>
 
-              {/* Node */}
-              <div className={`absolute left-0 top-0 w-10 h-10 rounded-full flex items-center justify-center
-                ${index === 0 ? 'bg-forge-crimson' : 'bg-forge-gray border border-white/10'}`}>
-                <step.icon size={18} className={index === 0 ? 'text-white' : 'text-white/50'} />
+          {/* Mobile Active Step Content */}
+          <motion.div
+            key={activeStep}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative pl-12"
+          >
+            {/* Node */}
+            <div className="absolute left-0 top-0 w-10 h-10 rounded-full flex items-center justify-center bg-forge-crimson shadow-crimson">
+              {(() => {
+                const Icon = steps[activeStep - 1].icon
+                return <Icon size={18} className="text-white" />
+              })()}
+            </div>
+
+            {/* Content */}
+            <div className="bg-forge-black/30 rounded-xl p-6 border border-white/5">
+              <span className="text-forge-crimson text-xs font-semibold">Step {activeStep} of {steps.length}</span>
+              <h3 className="font-heading text-xl font-bold text-white mt-1 mb-2">
+                {steps[activeStep - 1].title}
+              </h3>
+              <p className="text-white/60 text-sm">
+                {steps[activeStep - 1].description}
+              </p>
+              
+              <div className="flex flex-wrap gap-2 mt-4">
+                {steps[activeStep - 1].details.map((detail) => (
+                  <span key={detail} className="px-2 py-1 bg-white/5 text-white/60 text-xs rounded-full">
+                    {detail}
+                  </span>
+                ))}
               </div>
 
-              {/* Content */}
-              <div className="bg-forge-black/30 rounded-xl p-6 border border-white/5">
-                <span className="text-forge-crimson text-xs font-semibold">Step {step.id}</span>
-                <h3 className="font-heading text-xl font-bold text-white mt-1 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-white/60 text-sm">
-                  {step.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {step.details.map((detail) => (
-                    <span key={detail} className="px-2 py-1 bg-white/5 text-white/60 text-xs rounded-full">
-                      {detail}
-                    </span>
-                  ))}
-                </div>
+              {/* Mobile Navigation Buttons */}
+              <div className="flex justify-between mt-6 pt-4 border-t border-white/5">
+                <button
+                  onClick={() => setActiveStep(Math.max(1, activeStep - 1))}
+                  disabled={activeStep === 1}
+                  className="px-4 py-2 text-sm text-white/60 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  ← Previous
+                </button>
+                <button
+                  onClick={() => setActiveStep(Math.min(steps.length, activeStep + 1))}
+                  disabled={activeStep === steps.length}
+                  className="px-4 py-2 text-sm bg-forge-crimson text-white rounded-lg hover:bg-forge-crimson-light 
+                    transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  Next →
+                </button>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
