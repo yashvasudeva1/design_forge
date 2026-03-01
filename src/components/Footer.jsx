@@ -60,7 +60,7 @@ const Footer = () => {
               <img
                 src="/Add a subheading (1).png"
                 alt="Design Forge"
-                className="h-12 object-contain"
+                className="h-14 object-contain"
               />
             </div>
             <p className="text-white/50 max-w-sm">

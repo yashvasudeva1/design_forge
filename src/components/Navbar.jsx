@@ -72,7 +72,7 @@ const Navbar = () => {
               <img
                 src="/Add a subheading (1).png"
                 alt="Design Forge"
-                className="h-10 object-contain transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(177,18,38,0.5)]"
+                className="h-14 object-contain transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(177,18,38,0.5)]"
               />
             </motion.a>
 
