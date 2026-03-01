@@ -12,7 +12,7 @@ import {
 const services = [
   {
     icon: Palette,
-    title: 'Logo Design',
+    title: 'Logo',
     description: 'Distinctive, memorable logos that capture your brand essence and stand the test of time.',
     features: ['Custom Concepts', 'Vector Files', 'Brand Guidelines']
   },
@@ -24,19 +24,19 @@ const services = [
   },
   {
     icon: Share2,
-    title: 'Social Media Design',
+    title: 'Social Media',
     description: 'Scroll-stopping content that engages your audience and amplifies your message.',
     features: ['Post Templates', 'Story Designs', 'Ad Creatives']
   },
   {
     icon: Layout,
-    title: 'UI/UX Design',
+    title: 'UI/UX',
     description: 'Intuitive interfaces that delight users and drive conversions with seamless experiences.',
     features: ['Web Design', 'App Design', 'Prototyping']
   },
   {
     icon: Image,
-    title: 'Posters & Marketing',
+    title: 'Posters',
     description: 'Eye-catching print and digital materials that communicate with impact.',
     features: ['Print Design', 'Flyers', 'Brochures']
   },

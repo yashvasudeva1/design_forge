@@ -58,13 +58,10 @@ const Footer = () => {
           <div className="col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <img
-                src="/Graphic (11).png"
+                src="/Add a subheading (1).png"
                 alt="Design Forge"
-                className="h-12 w-12 object-contain"
+                className="h-12 object-contain"
               />
-              <span className="font-heading font-bold text-2xl text-white">
-                Design<span className="text-forge-crimson">Forge</span>
-              </span>
             </div>
             <p className="text-white/50 max-w-sm">
               Forging powerful visual identities that stand the test of time. 

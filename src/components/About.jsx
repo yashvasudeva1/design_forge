@@ -177,10 +177,10 @@ const About = () => {
               {[
                 { label: 'Projects Delivered', value: '150+' },
                 { label: 'Client Retention', value: '95%' },
-                { label: 'Team Members', value: '12+' }
+                { label: 'Rating', value: '★★★★★', isRating: true }
               ].map((item) => (
                 <div key={item.label} className="p-4 bg-white/5 rounded-xl border border-white/5">
-                  <div className="font-heading text-2xl font-bold text-forge-crimson">
+                  <div className={`font-heading text-2xl font-bold ${item.isRating ? 'text-yellow-400' : 'text-forge-crimson'}`}>
                     {item.value}
                   </div>
                   <div className="text-sm text-white/50">{item.label}</div>

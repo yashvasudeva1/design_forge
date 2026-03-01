@@ -70,13 +70,10 @@ const Navbar = () => {
               whileTap={{ scale: 0.98 }}
             >
               <img
-                src="/Graphic (11).png"
+                src="/Add a subheading (1).png"
                 alt="Design Forge"
-                className="h-10 w-10 object-contain transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(177,18,38,0.5)]"
+                className="h-10 object-contain transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(177,18,38,0.5)]"
               />
-              <span className="font-heading font-bold text-xl text-white hidden sm:block">
-                Design<span className="text-forge-crimson">Forge</span>
-              </span>
             </motion.a>
 
             {/* Desktop Navigation */}

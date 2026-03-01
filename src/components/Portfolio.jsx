@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-const categories = ['All', 'Branding', 'Logos', 'Digital', 'Print']
+const categories = ['All', 'Branding', 'Logos', 'Digital', 'Print', 'Certificates']
 
 // Cloudinary optimization: auto format, quality, and resize
 const optimizeImage = (url) => {
@@ -32,11 +32,11 @@ const projects = [
     id: 2,
     title: 'Story Design',
     category: 'Digital',
-    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141058/Copy_of_DSA_Your_Story_xmgjeg.jpg'),
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772371218/Untitled_design_23_t4txfw.jpg'),
     description: 'Creative story design for social media',
     height: 'min-h-[500px]',
     details: {
-      client: 'Namespace BPIT',
+      client: 'Elysium',
       duration: '2 days',
       whatIDid: [
         'Created engaging Instagram story templates with bold typography',
@@ -225,12 +225,157 @@ const projects = [
         'Delivered brand guidelines for consistent application'
       ]
     }
+  },
+  {
+    id: 13,
+    title: 'Modern Logo Design',
+    category: 'Logos',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372770/Untitled_design_6_avq1dq.png'),
+    description: 'Clean and modern logo design',
+    height: 'min-h-[300px]',
+    details: {
+      client: 'Various Clients',
+      duration: '4 days',
+      whatIDid: [
+        'Created modern, scalable logo designs',
+        'Developed multiple concept variations',
+        'Ensured brand consistency across applications',
+        'Delivered vector files for all use cases'
+      ]
+    }
+  },
+  {
+    id: 14,
+    title: 'Brand Identity Logo',
+    category: 'Logos',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772373817/Untitled_design_7_epi36j.png'),
+    description: 'Professional brand identity logo',
+    height: 'min-h-[300px]',
+    details: {
+      client: 'Corporate Client',
+      duration: '5 days',
+      whatIDid: [
+        'Designed distinctive brand identity logo',
+        'Created versatile logo variations',
+        'Developed brand color palette',
+        'Prepared comprehensive brand guidelines'
+      ]
+    }
+  },
+  {
+    id: 15,
+    title: 'Creative Logo',
+    category: 'Logos',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372786/7_afa8xi.png'),
+    description: 'Creative and unique logo design',
+    height: 'min-h-[300px]',
+    details: {
+      client: 'Startup',
+      duration: '3 days',
+      whatIDid: [
+        'Conceptualized unique visual identity',
+        'Created memorable and distinctive logo',
+        'Ensured scalability across all mediums',
+        'Delivered multiple file formats'
+      ]
+    }
+  },
+  {
+    id: 16,
+    title: 'Appreciation Certificate',
+    category: 'Certificates',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372770/Gold_Elegant_Appreciation_Certificate_1_eka2aw.jpg'),
+    description: 'Gold elegant appreciation certificate design',
+    height: 'min-h-[350px]',
+    details: {
+      client: 'Corporate Client',
+      duration: '2 days',
+      whatIDid: [
+        'Designed elegant gold-themed certificate',
+        'Created professional typography layout',
+        'Added decorative elements and borders',
+        'Prepared print-ready files'
+      ]
+    }
+  },
+  {
+    id: 17,
+    title: 'College Certificate',
+    category: 'Certificates',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372770/WORLD_COLLEGE_OF_MEDICAL_SCIENCE_ag08sm.jpg'),
+    description: 'Professional college certificate design',
+    height: 'min-h-[350px]',
+    details: {
+      client: 'World College of Medical Science',
+      duration: '3 days',
+      whatIDid: [
+        'Designed official college certificate template',
+        'Incorporated institutional branding',
+        'Created formal and professional layout',
+        'Ensured print quality specifications'
+      ]
+    }
+  },
+  {
+    id: 18,
+    title: 'APIs Explained Post',
+    category: 'Digital',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372776/APIs_Explained_Simply_7_mu1zbs.jpg'),
+    description: 'Educational Instagram post about APIs',
+    height: 'min-h-[350px]',
+    details: {
+      client: 'Tech Education',
+      duration: '1 day',
+      whatIDid: [
+        'Created informative social media content',
+        'Designed engaging visual explanations',
+        'Simplified complex technical concepts',
+        'Optimized for Instagram engagement'
+      ]
+    }
+  },
+  {
+    id: 19,
+    title: 'Branding Mistakes Post',
+    category: 'Digital',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372785/Blue_Modern_Branding_Mistakes_Instagram_Post_e2fnue.jpg'),
+    description: 'Blue modern branding mistakes Instagram post',
+    height: 'min-h-[350px]',
+    details: {
+      client: 'Design Education',
+      duration: '1 day',
+      whatIDid: [
+        'Created educational branding content',
+        'Designed modern blue-themed visuals',
+        'Highlighted common branding pitfalls',
+        'Optimized for social media sharing'
+      ]
+    }
+  },
+  {
+    id: 20,
+    title: 'Education Tips Poster',
+    category: 'Print',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372772/tips_to_tackle_lack_of_education_zvpwkq.jpg'),
+    description: 'Poster about tackling lack of education',
+    height: 'min-h-[400px]',
+    details: {
+      client: 'Educational Initiative',
+      duration: '2 days',
+      whatIDid: [
+        'Designed impactful awareness poster',
+        'Created compelling visual hierarchy',
+        'Developed clear messaging layout',
+        'Prepared high-resolution print files'
+      ]
+    }
   }
 ]
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
+  const [showAll, setShowAll] = useState(false)
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -240,6 +385,9 @@ const Portfolio = () => {
   const filteredProjects = activeFilter === 'All' 
     ? projects 
     : projects.filter(p => p.category === activeFilter)
+
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 9)
+  const hasMoreProjects = filteredProjects.length > 9
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -307,7 +455,10 @@ const Portfolio = () => {
           {categories.map((category) => (
             <motion.button
               key={category}
-              onClick={() => setActiveFilter(category)}
+              onClick={() => {
+                setActiveFilter(category)
+                setShowAll(false)
+              }}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
                 ${activeFilter === category 
                   ? 'bg-forge-crimson text-white shadow-crimson' 
@@ -322,78 +473,106 @@ const Portfolio = () => {
         </motion.div>
 
         {/* Projects Grid - Masonry Style */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                variants={itemVariants}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                className="group relative cursor-pointer"
-                onClick={() => setSelectedProject(project)}
-              >
-                <div className={`relative h-full ${project.height || 'min-h-[300px]'} rounded-2xl overflow-hidden bg-forge-dark`}>
-                  {/* Image */}
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                  />
+        <div className="relative">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max"
+          >
+            <AnimatePresence mode="popLayout">
+              {displayedProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  variants={itemVariants}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  className="group relative cursor-pointer"
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <div className={`relative h-full ${project.height || 'min-h-[300px]'} rounded-2xl overflow-hidden bg-forge-dark`}>
+                    {/* Image */}
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                    />
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-forge-black via-forge-black/50 to-transparent 
-                    opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-forge-black via-forge-black/50 to-transparent 
+                      opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
 
-                  {/* Crimson Overlay on Hover */}
-                  <div className="absolute inset-0 bg-forge-crimson/20 opacity-0 group-hover:opacity-100 
-                    transition-opacity duration-500" />
+                    {/* Crimson Overlay on Hover */}
+                    <div className="absolute inset-0 bg-forge-crimson/20 opacity-0 group-hover:opacity-100 
+                      transition-opacity duration-500" />
 
-                  {/* Content */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                    {/* Category */}
-                    <span className="inline-block px-3 py-1 bg-forge-crimson/80 text-white text-xs font-medium 
-                      rounded-full w-fit mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 
-                      transform translate-y-4 group-hover:translate-y-0">
-                      {project.category}
-                    </span>
+                    {/* Content */}
+                    <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                      {/* Category */}
+                      <span className="inline-block px-3 py-1 bg-forge-crimson/80 text-white text-xs font-medium 
+                        rounded-full w-fit mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 
+                        transform translate-y-4 group-hover:translate-y-0">
+                        {project.category}
+                      </span>
 
-                    {/* Title */}
-                    <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-2 
-                      transition-transform duration-300 group-hover:translate-y-0 translate-y-2">
-                      {project.title}
-                    </h3>
+                      {/* Title */}
+                      <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-2 
+                        transition-transform duration-300 group-hover:translate-y-0 translate-y-2">
+                        {project.title}
+                      </h3>
 
-                    {/* Description */}
-                    <p className="text-white/70 text-sm opacity-0 group-hover:opacity-100 
-                      transition-all duration-300 delay-100 transform translate-y-4 group-hover:translate-y-0">
-                      {project.description}
-                    </p>
+                      {/* Description */}
+                      <p className="text-white/70 text-sm opacity-0 group-hover:opacity-100 
+                        transition-all duration-300 delay-100 transform translate-y-4 group-hover:translate-y-0">
+                        {project.description}
+                      </p>
 
-                    {/* Click hint */}
-                    <span className="text-forge-crimson text-xs mt-3 opacity-0 group-hover:opacity-100 
-                      transition-all duration-300 delay-150 transform translate-y-4 group-hover:translate-y-0">
-                      Click to view details →
-                    </span>
+                      {/* Click hint */}
+                      <span className="text-forge-crimson text-xs mt-3 opacity-0 group-hover:opacity-100 
+                        transition-all duration-300 delay-150 transform translate-y-4 group-hover:translate-y-0">
+                        Click to view details →
+                      </span>
+                    </div>
+
+                    {/* Border Glow */}
+                    <div className="absolute inset-0 rounded-2xl border-2 border-transparent 
+                      group-hover:border-forge-crimson/50 transition-colors duration-500" />
                   </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
 
-                  {/* Border Glow */}
-                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent 
-                    group-hover:border-forge-crimson/50 transition-colors duration-500" />
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+          {/* Vignette and View More Button */}
+          {!showAll && hasMoreProjects && (
+            <div className="relative mt-0">
+              {/* Vignette Overlay */}
+              <div className="absolute -top-48 left-0 right-0 h-48 bg-gradient-to-t from-forge-black via-forge-black/80 to-transparent pointer-events-none z-10" />
+              
+              {/* View More Button */}
+              <div className="relative z-20 flex justify-center pt-8">
+                <motion.button
+                  onClick={() => setShowAll(true)}
+                  className="group relative px-8 py-4 bg-forge-crimson/10 border border-forge-crimson/50 rounded-full 
+                    text-white font-semibold overflow-hidden transition-all duration-300 hover:border-forge-crimson hover:bg-forge-crimson/20"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    View More
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                </motion.button>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Tip of the iceberg tagline */}
         <motion.div
