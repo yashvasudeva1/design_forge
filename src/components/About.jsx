@@ -181,7 +181,7 @@ const About = () => {
               ].map((item) => (
                 <div key={item.label} className="p-4 bg-white/5 rounded-xl border border-white/5">
                   <div 
-                    className="font-heading text-2xl font-bold text-forge-crimson"
+                    className={`font-heading font-bold text-forge-crimson ${item.isRating ? 'text-base sm:text-lg md:text-2xl' : 'text-2xl'}`}
                     style={item.isRating ? { color: '#901a1d' } : {}}
                   >
                     {item.value}
