@@ -6,7 +6,7 @@ import {
   Share2, 
   Layout, 
   Image, 
-  Play 
+  MessageSquare 
 } from 'lucide-react'
 
 const services = [
@@ -41,10 +41,10 @@ const services = [
     features: ['Print Design', 'Flyers', 'Brochures']
   },
   {
-    icon: Play,
-    title: 'Motion Graphics',
-    description: 'Dynamic animations that bring your brand to life and captivate audiences.',
-    features: ['Logo Animation', 'Video Intros', 'Social Content']
+    icon: MessageSquare,
+    title: 'Design Consultancy',
+    description: 'Strategic design guidance to help you make informed creative decisions for your brand.',
+    features: ['Brand Audit', 'Design Strategy', 'Creative Direction']
   }
 ]
 

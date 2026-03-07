@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { memo } from 'react'
 
-const Hero = () => {
+const Hero = memo(() => {
   return (
     <section
       id="home"
@@ -9,51 +10,27 @@ const Hero = () => {
     >
       {/* Animated Background */}
       <div className="absolute inset-0 bg-forge-black">
-        {/* Gradient Orbs - Fixed positions */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-20"
+        {/* Gradient Orbs - Using CSS animations for better performance */}
+        <div
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-20 animate-pulse-slow"
           style={{
             background: 'radial-gradient(circle, rgba(144, 26, 29, 0.4) 0%, transparent 70%)',
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
+            willChange: 'transform, opacity'
           }}
         />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-15"
+        <div
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-15 animate-pulse-slow-reverse"
           style={{
             background: 'radial-gradient(circle, rgba(144, 26, 29, 0.3) 0%, transparent 70%)',
-          }}
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.1, 0.2, 0.1]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
+            willChange: 'transform, opacity'
           }}
         />
 
-        {/* Third orb for more depth */}
-        <motion.div
-          className="absolute top-1/2 right-1/3 w-[400px] h-[400px] rounded-full opacity-10"
+        {/* Third orb - hidden on mobile for performance */}
+        <div
+          className="hidden md:block absolute top-1/2 right-1/3 w-[400px] h-[400px] rounded-full opacity-10 animate-pulse-slow"
           style={{
             background: 'radial-gradient(circle, rgba(144, 26, 29, 0.35) 0%, transparent 70%)',
-          }}
-          animate={{
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
           }}
         />
 
@@ -153,18 +130,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
           >
             <span>Start a Project</span>
-            <motion.div
-              className="w-2 h-2 rounded-full bg-forge-crimson"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [1, 0.7, 1]
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
+            <div className="w-2 h-2 rounded-full bg-forge-crimson animate-pulse" />
           </motion.a>
         </motion.div>
       </div>
@@ -173,6 +139,8 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-forge-black to-transparent z-10" />
     </section>
   )
-}
+})
+
+Hero.displayName = 'Hero'
 
 export default Hero

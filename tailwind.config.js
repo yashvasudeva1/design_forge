@@ -22,8 +22,9 @@ export default {
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'glow': 'glow 4s ease-in-out infinite',
+        'pulse-slow': 'pulseSlow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slow-reverse': 'pulseSlowReverse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'ember': 'ember 3s ease-out infinite',
         'flame': 'flame 1.5s ease-in-out infinite',
         'slide-up': 'slideUp 0.6s ease-out',
@@ -38,8 +39,16 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(177, 18, 38, 0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(177, 18, 38, 0.6)' },
+          '0%, 100%': { boxShadow: 'inset 0 0 60px rgba(177, 18, 38, 0.1)' },
+          '50%': { boxShadow: 'inset 0 0 100px rgba(177, 18, 38, 0.2)' },
+        },
+        pulseSlow: {
+          '0%, 100%': { transform: 'scale(1)', opacity: '0.15' },
+          '50%': { transform: 'scale(1.2)', opacity: '0.25' },
+        },
+        pulseSlowReverse: {
+          '0%, 100%': { transform: 'scale(1.2)', opacity: '0.1' },
+          '50%': { transform: 'scale(1)', opacity: '0.2' },
         },
         ember: {
           '0%': { transform: 'translateY(0) scale(1)', opacity: 1 },

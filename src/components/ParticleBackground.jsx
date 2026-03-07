@@ -1,10 +1,11 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef, useCallback, memo } from 'react'
 
-const ParticleBackground = () => {
+const ParticleBackground = memo(() => {
   const canvasRef = useRef(null)
   const animationRef = useRef(null)
   const particlesRef = useRef([])
   const mouseRef = useRef({ x: 0, y: 0 })
+  const lastMouseUpdate = useRef(0)
 
   const createParticle = useCallback((canvas) => {
     return {
@@ -23,24 +24,34 @@ const ParticleBackground = () => {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext('2d', { alpha: true })
     let particles = particlesRef.current
+    
+    // Reduce particles on mobile for better performance
+    const isMobile = window.innerWidth < 768
+    const maxParticles = isMobile ? 40 : 80
+    const initialParticles = isMobile ? 30 : 50
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
     }
 
+    // Throttled mouse move handler
     const handleMouseMove = (e) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY }
+      const now = performance.now()
+      if (now - lastMouseUpdate.current > 16) { // ~60fps throttle
+        mouseRef.current = { x: e.clientX, y: e.clientY }
+        lastMouseUpdate.current = now
+      }
     }
 
     resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
-    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('resize', resizeCanvas, { passive: true })
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
 
     // Initialize particles
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < initialParticles; i++) {
       const particle = createParticle(canvas)
       particle.y = Math.random() * canvas.height
       particles.push(particle)
@@ -50,25 +61,28 @@ const ParticleBackground = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       // Add new particles occasionally
-      if (Math.random() < 0.06 && particles.length < 100) {
+      if (Math.random() < 0.05 && particles.length < maxParticles) {
         particles.push(createParticle(canvas))
       }
 
       particles = particles.filter(particle => {
         particle.life++
         
-        // Mouse interaction - particles are repelled by cursor
-        const mouse = mouseRef.current
-        const dx = particle.x - mouse.x
-        const dy = particle.y - mouse.y
-        const distance = Math.sqrt(dx * dx + dy * dy)
-        const maxDistance = 150
-        
-        if (distance < maxDistance) {
-          const force = (maxDistance - distance) / maxDistance
-          const angle = Math.atan2(dy, dx)
-          particle.x += Math.cos(angle) * force * 3
-          particle.y += Math.sin(angle) * force * 3
+        // Mouse interaction - particles are repelled by cursor (skip on mobile)
+        if (!isMobile) {
+          const mouse = mouseRef.current
+          const dx = particle.x - mouse.x
+          const dy = particle.y - mouse.y
+          const distSq = dx * dx + dy * dy
+          const maxDistSq = 22500 // 150^2
+          
+          if (distSq < maxDistSq) {
+            const distance = Math.sqrt(distSq)
+            const force = (150 - distance) / 150
+            const angle = Math.atan2(dy, dx)
+            particle.x += Math.cos(angle) * force * 3
+            particle.y += Math.sin(angle) * force * 3
+          }
         }
         
         particle.y -= particle.speedY
@@ -79,28 +93,19 @@ const ParticleBackground = () => {
           return false
         }
 
-        // Draw ember
-        const gradient = ctx.createRadialGradient(
-          particle.x, particle.y, 0,
-          particle.x, particle.y, particle.size * 2
-        )
-        gradient.addColorStop(0, `rgba(177, 18, 38, ${particle.opacity})`)
-        gradient.addColorStop(0.5, `rgba(212, 32, 44, ${particle.opacity * 0.5})`)
-        gradient.addColorStop(1, 'rgba(177, 18, 38, 0)')
-
+        // Simplified drawing for better performance
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = gradient
+        ctx.fillStyle = `rgba(177, 18, 38, ${particle.opacity})`
         ctx.fill()
 
-        // Add glow
-        ctx.shadowBlur = 10
-        ctx.shadowColor = `rgba(177, 18, 38, ${particle.opacity})`
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size * 0.5, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(255, 150, 100, ${particle.opacity})`
-        ctx.fill()
-        ctx.shadowBlur = 0
+        // Add subtle glow only on desktop
+        if (!isMobile) {
+          ctx.beginPath()
+          ctx.arc(particle.x, particle.y, particle.size * 1.5, 0, Math.PI * 2)
+          ctx.fillStyle = `rgba(212, 32, 44, ${particle.opacity * 0.3})`
+          ctx.fill()
+        }
 
         return true
       })
@@ -128,9 +133,11 @@ const ParticleBackground = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-10 opacity-80"
-      style={{ mixBlendMode: 'screen' }}
+      style={{ mixBlendMode: 'screen', willChange: 'auto' }}
     />
   )
-}
+})
+
+ParticleBackground.displayName = 'ParticleBackground'
 
 export default ParticleBackground

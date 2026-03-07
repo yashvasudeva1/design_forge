@@ -264,7 +264,7 @@ const projects = [
   },
   {
     id: 15,
-    title: 'Creative Logo',
+    title: 'Oh Wow Gifts',
     category: 'Logos',
     image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772372786/7_afa8xi.png'),
     description: 'Creative and unique logo design',
@@ -369,6 +369,91 @@ const projects = [
         'Prepared high-resolution print files'
       ]
     }
+  },
+  {
+    id: 21,
+    title: 'Abstract Poster',
+    category: 'Print',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772886346/2_d8tjok.jpg'),
+    description: 'Creative abstract poster design',
+    details: {
+      client: 'Personal Project',
+      duration: '1 day',
+      whatIDid: [
+        'Explored abstract visual concepts and compositions',
+        'Created unique color gradients and shapes',
+        'Developed artistic typography integration',
+        'Prepared high-resolution print-ready files'
+      ]
+    }
+  },
+  {
+    id: 22,
+    title: 'Abstract Poster',
+    category: 'Print',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772886350/7_i5eg9v.jpg'),
+    description: 'Modern abstract visual art poster',
+    details: {
+      client: 'Personal Project',
+      duration: '1 day',
+      whatIDid: [
+        'Designed bold abstract compositions',
+        'Experimented with geometric and organic forms',
+        'Created eye-catching color contrasts',
+        'Delivered scalable vector artwork'
+      ]
+    }
+  },
+  {
+    id: 23,
+    title: 'Abstract Poster',
+    category: 'Print',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772886353/8_gt73uf.jpg'),
+    description: 'Artistic abstract poster artwork',
+    details: {
+      client: 'Personal Project',
+      duration: '1 day',
+      whatIDid: [
+        'Created visually striking abstract design',
+        'Blended contemporary art styles with graphic design',
+        'Developed unique visual language',
+        'Prepared files for various print formats'
+      ]
+    }
+  },
+  {
+    id: 24,
+    title: 'Abstract Poster',
+    category: 'Print',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772886355/3_if3tus.jpg'),
+    description: 'Contemporary abstract graphic design',
+    details: {
+      client: 'Personal Project',
+      duration: '1 day',
+      whatIDid: [
+        'Explored minimalist abstract aesthetics',
+        'Created balanced compositions with bold elements',
+        'Designed with intentional negative space',
+        'Exported for both digital and print use'
+      ]
+    }
+  },
+  {
+    id: 25,
+    title: 'Abstract Poster',
+    category: 'Print',
+    image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1772886357/4_xsrpfs.jpg'),
+    description: 'Expressive abstract poster creation',
+    details: {
+      client: 'Personal Project',
+      duration: '1 day',
+      whatIDid: [
+        'Crafted expressive abstract visuals',
+        'Combined texture and color theory principles',
+        'Developed cohesive artistic statement',
+        'Prepared high-quality print outputs'
+      ]
+    }
   }
 ]
 
@@ -379,7 +464,8 @@ const Portfolio = () => {
 
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.05,
+    rootMargin: '100px 0px'
   })
 
   const filteredProjects = activeFilter === 'All' 
@@ -424,13 +510,13 @@ const Portfolio = () => {
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
           <motion.span
             initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="inline-block text-forge-crimson text-sm font-semibold tracking-widest uppercase mb-4"
           >
@@ -448,7 +534,7 @@ const Portfolio = () => {
         {/* Filter Tabs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
           className="flex flex-wrap justify-center gap-2 mb-12"
         >
@@ -472,13 +558,16 @@ const Portfolio = () => {
           ))}
         </motion.div>
 
-        {/* Projects Grid - Masonry Style */}
+        {/* Projects Grid - Masonry Style (Grid for Logos) */}
         <div className="relative">
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max"
+            animate="visible"
+            className={activeFilter === 'Logos' 
+              ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" 
+              : "columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4"
+            }
           >
             <AnimatePresence mode="popLayout">
               {displayedProjects.map((project, index) => (
@@ -490,16 +579,17 @@ const Portfolio = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4 }}
-                  className="group relative cursor-pointer"
+                  className={`group relative cursor-pointer ${activeFilter === 'Logos' ? '' : 'break-inside-avoid mb-4'}`}
                   onClick={() => setSelectedProject(project)}
                 >
-                  <div className={`relative h-full ${project.height || 'min-h-[300px]'} rounded-2xl overflow-hidden bg-forge-dark`}>
+                  <div className="relative rounded-2xl overflow-hidden bg-forge-dark">
                     {/* Image */}
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
 
                     {/* Overlay */}
@@ -577,7 +667,7 @@ const Portfolio = () => {
         {/* Tip of the iceberg tagline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
           className="text-center mt-12"
         >
@@ -620,11 +710,12 @@ const Portfolio = () => {
               {/* Modal Content */}
               <div className="grid md:grid-cols-2 gap-0">
                 {/* Image Section */}
-                <div className="relative h-64 md:h-full min-h-[300px]">
+                <div className="relative flex items-center justify-center bg-forge-black min-h-[300px]">
                   <img
                     src={selectedProject.image}
                     alt={selectedProject.title}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="w-full h-auto max-h-[500px] object-contain"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-forge-dark via-transparent to-transparent" />
                 </div>

@@ -54,13 +54,13 @@ const LoadingScreen = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.3 }}
           className="mt-8 w-48 h-1 bg-white/10 rounded-full overflow-hidden"
         >
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: '100%' }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
             className="h-full bg-gradient-to-r from-forge-crimson-dark via-forge-crimson to-forge-crimson-light"
           />
         </motion.div>

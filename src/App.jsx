@@ -1,24 +1,27 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
-import Services from './components/Services'
-import Portfolio from './components/Portfolio'
-import Process from './components/Process'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
 import ParticleBackground from './components/ParticleBackground'
 import LoadingScreen from './components/LoadingScreen'
+
+// Lazy load below-the-fold components for faster initial load
+const About = lazy(() => import('./components/About'))
+const Services = lazy(() => import('./components/Services'))
+const Portfolio = lazy(() => import('./components/Portfolio'))
+const Process = lazy(() => import('./components/Process'))
+const Testimonials = lazy(() => import('./components/Testimonials'))
+const Contact = lazy(() => import('./components/Contact'))
+const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    // Reduced loading time for better UX
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2500)
+    }, 1500)
 
     return () => clearTimeout(timer)
   }, [])
@@ -34,21 +37,25 @@ function App() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="relative"
           >
             <ParticleBackground />
             <Navbar />
             <main>
               <Hero />
-              <About />
-              <Services />
-              <Portfolio />
-              <Process />
-              <Testimonials />
-              <Contact />
+              <Suspense fallback={<div className="min-h-screen" />}>
+                <About />
+                <Services />
+                <Portfolio />
+                <Process />
+                <Testimonials />
+                <Contact />
+              </Suspense>
             </main>
-            <Footer />
+            <Suspense fallback={null}>
+              <Footer />
+            </Suspense>
           </motion.div>
         )}
       </AnimatePresence>

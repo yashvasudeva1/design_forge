@@ -112,27 +112,14 @@ const About = () => {
                   src="/Graphic (11).png"
                   alt="Design Forge Logo"
                   className="absolute inset-0 w-full h-full object-contain p-16 opacity-90"
+                  loading="eager"
                 />
                 
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-forge-crimson/10 via-transparent to-forge-black/50" />
                 
-                {/* Animated Glow */}
-                <motion.div
-                  className="absolute inset-0"
-                  animate={{
-                    boxShadow: [
-                      'inset 0 0 60px rgba(177, 18, 38, 0.1)',
-                      'inset 0 0 100px rgba(177, 18, 38, 0.2)',
-                      'inset 0 0 60px rgba(177, 18, 38, 0.1)'
-                    ]
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
+                {/* Animated Glow - using CSS animation */}
+                <div className="absolute inset-0 animate-glow rounded-2xl" />
               </div>
 
               {/* Floating Badge */}

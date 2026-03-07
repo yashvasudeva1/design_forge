@@ -10,6 +10,26 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     minify: 'terser',
-    sourcemap: false
+    sourcemap: false,
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-framer': ['framer-motion'],
+          'vendor-utils': ['lucide-react', 'react-intersection-observer']
+        }
+      }
+    },
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
+  },
+  // Enable CSS optimization
+  css: {
+    devSourcemap: false
   }
 })
