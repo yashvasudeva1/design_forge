@@ -15,7 +15,7 @@ const projects = [
     title: 'Menu',
     category: 'Print',
     image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770142535/Brown_with_Photo_Chocolate_Dessert_Menu_1_iee62s.jpg'),
-    description: 'Elegant menu design for chocolate desserts',
+    description: 'Brutalist design menu system with Swiss-style branding grid, built by a Delhi design agency.',
     height: 'min-h-[400px]',
     details: {
       client: 'Chocworks',
@@ -51,7 +51,7 @@ const projects = [
     title: 'Posters',
     category: 'Print',
     image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141057/Peace_1_qge5wo.jpg'),
-    description: 'Creative poster design collection',
+    description: 'Brutalist design poster series with bold typography and modular hierarchy for high-impact campaigns.',
     height: 'min-h-[350px]',
     details: {
       client: 'Various Clients',
@@ -69,7 +69,7 @@ const projects = [
     title: 'Wedding Invitation',
     category: 'Print',
     image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141510/Purple_and_Green_Floral_Illustrated_Indian_Wedding_Ceremony_Invitation_2_qoiprn.jpg'),
-    description: 'Floral illustrated Indian wedding ceremony invitation',
+    description: 'Swiss-style branding invitation suite with precise grid alignment by a Delhi design agency.',
     height: 'min-h-[450px]',
     details: {
       client: 'Private Client',
@@ -105,7 +105,7 @@ const projects = [
     title: 'Minimalist Post',
     category: 'Digital',
     image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141044/Untitled_design_17_umjsaa.jpg'),
-    description: 'Modern minimalist post design',
+    description: 'Minimalist post design grounded in Swiss-style branding for crisp, technical storytelling.',
     height: 'min-h-[350px]',
     details: {
       client: 'Opticlick',
@@ -141,7 +141,7 @@ const projects = [
     title: 'Logo Design',
     category: 'Logos',
     image: optimizeImage('https://res.cloudinary.com/dfxvrqxkh/image/upload/v1770141043/Elysium_Logo_1_l5lcjr.png'),
-    description: 'Professional logo design',
+    description: 'Logo system by a Delhi design agency using Swiss-style branding discipline and industrial clarity.',
     height: 'min-h-[300px]',
     details: {
       client: 'Elysium',

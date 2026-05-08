@@ -8,6 +8,9 @@ const Contact = () => {
     name: '',
     email: '',
     company: '',
+    projectType: '',
+    timeline: '',
+    budget: '',
     message: ''
   })
   const [errors, setErrors] = useState({})
@@ -58,11 +61,6 @@ const Contact = () => {
       
       if (response.ok) {
         setIsSubmitted(true)
-        // Reset form after showing success
-        setTimeout(() => {
-          setFormData({ name: '', email: '', company: '', message: '' })
-          setIsSubmitted(false)
-        }, 5000)
       } else {
         throw new Error('Form submission failed')
       }
@@ -82,6 +80,20 @@ const Contact = () => {
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }))
     }
+  }
+
+  const handleReset = () => {
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      projectType: '',
+      timeline: '',
+      budget: '',
+      message: ''
+    })
+    setErrors({})
+    setIsSubmitted(false)
   }
 
   return (
@@ -143,11 +155,41 @@ const Contact = () => {
                     <CheckCircle size={40} className="text-green-500" />
                   </motion.div>
                   <h3 className="font-heading text-2xl font-bold text-white mb-2">
-                    Message Sent!
+                    Request Received. Next: Precision Review.
                   </h3>
-                  <p className="text-white/60">
-                    Thanks for reaching out. We'll get back to you within 24 hours.
+                  <p className="text-white/60 max-w-md mx-auto">
+                    We will review your brief within 24-48 hours and respond with a
+                    scoped direction and next steps.
                   </p>
+                  <div className="mt-6 text-left max-w-md mx-auto text-sm text-white/70 space-y-2">
+                    <p>To accelerate the review, share:</p>
+                    <ul className="list-disc list-inside text-white/60 space-y-1">
+                      <li>Brand or website links</li>
+                      <li>Timeline priority</li>
+                      <li>Decision-maker and budget range</li>
+                    </ul>
+                  </div>
+                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a
+                      href="mailto:designforge250@gmail.com?subject=Design%20Forge%20Project%20Intake"
+                      className="btn-primary px-6 py-3"
+                    >
+                      Share Project Links
+                    </a>
+                    <a
+                      href="#process"
+                      className="px-6 py-3 rounded-xl border border-white/20 text-white/80 hover:text-white hover:border-forge-crimson transition-colors"
+                    >
+                      View Our Process
+                    </a>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleReset}
+                    className="mt-6 text-xs text-white/50 hover:text-white/80 transition-colors"
+                  >
+                    Send another request
+                  </button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -208,6 +250,66 @@ const Contact = () => {
                       placeholder="Your Company"
                       className="input-field"
                     />
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {/* Project Type */}
+                    <div>
+                      <label className="block text-white/60 text-sm mb-2">
+                        Project Type
+                      </label>
+                      <select
+                        name="projectType"
+                        value={formData.projectType}
+                        onChange={handleChange}
+                        className="input-field"
+                      >
+                        <option value="">Select</option>
+                        <option value="Branding">Branding</option>
+                        <option value="Logo">Logo Design</option>
+                        <option value="UI/UX">UI/UX Design</option>
+                        <option value="Print">Print / Poster</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+
+                    {/* Timeline */}
+                    <div>
+                      <label className="block text-white/60 text-sm mb-2">
+                        Timeline
+                      </label>
+                      <select
+                        name="timeline"
+                        value={formData.timeline}
+                        onChange={handleChange}
+                        className="input-field"
+                      >
+                        <option value="">Select</option>
+                        <option value="2-4 weeks">2-4 weeks</option>
+                        <option value="1-2 months">1-2 months</option>
+                        <option value="3+ months">3+ months</option>
+                        <option value="Not sure">Not sure</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Budget */}
+                  <div>
+                    <label className="block text-white/60 text-sm mb-2">
+                      Budget Range
+                    </label>
+                    <select
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="input-field"
+                    >
+                      <option value="">Select</option>
+                      <option value="Below 25k">Below 25k</option>
+                      <option value="25k-60k">25k-60k</option>
+                      <option value="60k-1.5L">60k-1.5L</option>
+                      <option value="1.5L+">1.5L+</option>
+                    </select>
                   </div>
 
                   {/* Message */}
