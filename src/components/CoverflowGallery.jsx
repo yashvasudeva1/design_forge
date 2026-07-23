@@ -91,14 +91,18 @@ const CoverflowGallery = ({
 
   // Touch swipe support for mobile
   const touchStartX = useRef(0)
+  const touchStartY = useRef(0)
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
   }
   const handleTouchEnd = (e) => {
     const touchEndX = e.changedTouches[0].clientX
-    const diff = touchStartX.current - touchEndX
-    if (Math.abs(diff) > 35) {
-      if (diff > 0) step(1)
+    const touchEndY = e.changedTouches[0].clientY
+    const diffX = touchStartX.current - touchEndX
+    const diffY = touchStartY.current - touchEndY
+    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+      if (diffX > 0) step(1)
       else step(-1)
     }
   }
@@ -149,6 +153,7 @@ const CoverflowGallery = ({
         perspective: `${PERSPECTIVE}px`,
         overflow: 'hidden',
         outline: 'none',
+        touchAction: 'pan-y pinch-zoom',
       }}
       tabIndex={0}
       role="group"

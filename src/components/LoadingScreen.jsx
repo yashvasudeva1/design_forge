@@ -1,14 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const LoadingScreen = ({ onComplete }) => {
   const [count, setCount] = useState(0)
   const [done, setDone] = useState(false)
 
+  const onCompleteRef = useRef(onComplete)
+  onCompleteRef.current = onComplete
+
   useEffect(() => {
     let frame
     let start = null
-    const duration = 1800
+    const duration = 1500
+    let completed = false
+
+    const finish = () => {
+      if (completed) return
+      completed = true
+      setCount(100)
+      setDone(true)
+      setTimeout(() => {
+        if (onCompleteRef.current) onCompleteRef.current()
+      }, 400)
+    }
 
     const animate = (timestamp) => {
       if (!start) start = timestamp
@@ -19,16 +33,20 @@ const LoadingScreen = ({ onComplete }) => {
       if (progress < 1) {
         frame = requestAnimationFrame(animate)
       } else {
-        setTimeout(() => {
-          setDone(true)
-          setTimeout(onComplete, 600)
-        }, 200)
+        finish()
       }
     }
 
     frame = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(frame)
-  }, [onComplete])
+
+    // Safety timeout in case requestAnimationFrame is throttled/paused on mobile
+    const safetyTimer = setTimeout(finish, 2000)
+
+    return () => {
+      cancelAnimationFrame(frame)
+      clearTimeout(safetyTimer)
+    }
+  }, [])
 
   return (
     <AnimatePresence>

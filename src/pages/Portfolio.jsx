@@ -223,7 +223,7 @@ const Portfolio = () => {
 
       {/* Magnetic Carousel Showcase */}
       <section className="py-12 bg-black" ref={ref}>
-        <div className="w-full" style={{ height: '600px', overflowX: 'hidden', overflowY: 'visible' }}>
+        <div className="w-full h-[380px] md:h-[600px] overflow-y-visible">
           <MagneticCarousel
             images={carouselImages}
             onImageClick={(img) => {
