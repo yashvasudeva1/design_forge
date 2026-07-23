@@ -34,9 +34,14 @@ body {
   background-color: var(--black);
   color: var(--white);
   line-height: 1.6;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Do NOT use overflow-x:hidden on body — it breaks iOS touch scroll */
+}
+
+/* Clip horizontal overflow at the html level instead */
+html {
+  overflow-x: clip;
 }
 
 
