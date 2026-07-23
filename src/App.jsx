@@ -5,7 +5,6 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 import LoadingScreen from './components/LoadingScreen'
-import SplashCursor from './components/SplashCursor'
 
 // Lazy load pages
 const Home      = lazy(() => import('./pages/Home'))
@@ -47,8 +46,7 @@ function App() {
 
   return (
     <>
-      {/* Global fluid cursor effect */}
-      <SplashCursor />
+      {/* Global fluid cursor effect removed */}
 
       {/* Noise overlay */}
       <div className="noise-overlay pointer-events-none" />
