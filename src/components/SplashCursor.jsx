@@ -17,6 +17,11 @@ const SplashCursor = ({
   const canvasRef = useRef(null)
 
   useEffect(() => {
+    // Skip on touch/mobile devices — the effect is mouse-only and
+    // the touchmove preventDefault call would block page scrolling.
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (isTouchDevice) return
+
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -709,7 +714,7 @@ const SplashCursor = ({
     })
 
     window.addEventListener('touchmove', e => {
-      e.preventDefault()
+      // Do NOT call e.preventDefault() — that blocks native page scroll.
       const touches = e.targetTouches
       for (let i = 0; i < touches.length; i++) {
         let pointer = pointers[i]
@@ -718,7 +723,7 @@ const SplashCursor = ({
         const posY = scaleByPixelRatio(touches[i].clientY)
         updatePointerMoveData(pointer, posX, posY)
       }
-    }, { passive: false })
+    }, { passive: true })
 
     function updatePointerMoveData(pointer, posX, posY) {
       pointer.prevTexcoordX = pointer.texcoordX
