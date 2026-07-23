@@ -60,10 +60,11 @@ const CoverflowGallery = ({
   useEffect(() => {
     const handleResize = () => {
       const isMobile = window.innerWidth < 768
+      const maxW = Math.min(window.innerWidth - 48, 300)
       setLayout({
-        width: isMobile ? Math.min(260, cardWidth) : cardWidth,
-        height: isMobile ? Math.min(260, cardHeight) : cardHeight,
-        gapMultiplier: isMobile ? 18 : 30
+        width: isMobile ? maxW : cardWidth,
+        height: isMobile ? Math.round(maxW * 1.05) : cardHeight,
+        gapMultiplier: isMobile ? 16 : 30
       })
     }
     handleResize()
@@ -87,6 +88,20 @@ const CoverflowGallery = ({
     lock()
     setActive(a => (((a + dir) % n) + n) % n)
   }, [n, lock])
+
+  // Touch swipe support for mobile
+  const touchStartX = useRef(0)
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX
+    const diff = touchStartX.current - touchEndX
+    if (Math.abs(diff) > 35) {
+      if (diff > 0) step(1)
+      else step(-1)
+    }
+  }
 
   const handleCardClick = useCallback((i) => {
     if (autoplay || lockRef.current) return
@@ -139,6 +154,8 @@ const CoverflowGallery = ({
       role="group"
       aria-roledescription="carousel"
       onKeyDown={onKeyDown}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <div
         style={{

@@ -75,19 +75,19 @@ const ProjectModal = ({ project, onClose }) => (
 
       <div className="grid md:grid-cols-2">
         {/* Image */}
-        <div className="relative bg-black flex items-center justify-center min-h-[300px]">
+        <div className="relative bg-black flex items-center justify-center min-h-[200px] md:min-h-[300px]">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-auto max-h-[500px] object-contain"
+            className="w-full h-auto max-h-[350px] md:max-h-[500px] object-contain"
           />
         </div>
 
         {/* Info */}
-        <div className="p-8 md:p-10">
-          <span className="label mb-4 block">{project.category}</span>
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">{project.title}</h2>
-          <p className="text-white/50 text-sm mb-8">{project.desc}</p>
+        <div className="p-6 md:p-10">
+          <span className="label mb-3 block">{project.category}</span>
+          <h2 className="font-display text-xl md:text-3xl font-bold text-white mb-2">{project.title}</h2>
+          <p className="text-white/50 text-xs sm:text-sm mb-6">{project.desc}</p>
 
           <div className="flex gap-6 mb-8 text-sm">
             <div>

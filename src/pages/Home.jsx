@@ -119,7 +119,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex items-center gap-4"
+                className="flex flex-wrap items-center gap-3 sm:gap-4"
               >
                 <Link to="/portfolio" className="btn btn-primary">
                   <span>View Work</span>
@@ -212,10 +212,10 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
-                className={`py-14 px-8 ${i < 3 ? 'border-r border-white/5' : ''} ${i >= 2 ? '' : 'border-b lg:border-b-0 border-white/5'}`}
+                className={`py-8 px-4 sm:py-14 sm:px-8 ${i % 2 === 0 ? 'border-r border-white/5' : ''} ${i < 2 ? 'border-b lg:border-b-0 border-white/5' : ''}`}
               >
-                <div className="font-display text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-white/30 text-xs uppercase tracking-widest font-mono">{stat.label}</div>
+                <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
+                <div className="text-white/30 text-[10px] sm:text-xs uppercase tracking-widest font-mono">{stat.label}</div>
               </motion.div>
             ))}
           </div>
