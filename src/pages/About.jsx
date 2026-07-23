@@ -250,7 +250,7 @@ const About = () => {
       {/* ── CTA ─────────────────────────────────────────── */}
       <section className="bg-forge-crimson py-20 relative overflow-hidden">
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
             backgroundImage: 'linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px)',
             backgroundSize: '50px 50px',

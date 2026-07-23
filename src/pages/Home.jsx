@@ -77,7 +77,7 @@ const Home = () => {
       {/* ═══════════════════════════════════════════════ */}
       {/* HERO SECTION                                    */}
       {/* ═══════════════════════════════════════════════ */}
-      <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-black">
+      <section ref={heroRef} className="relative min-h-screen min-h-[100dvh] flex flex-col justify-center overflow-hidden bg-black">
         {/* Grid */}
         <div className="grid-overlay opacity-20" />
 
@@ -422,7 +422,7 @@ const Home = () => {
       <section className="bg-forge-crimson relative overflow-hidden py-24 md:py-32">
         {/* Grid */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
             backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
             backgroundSize: '60px 60px',
