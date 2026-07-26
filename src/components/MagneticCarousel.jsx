@@ -196,8 +196,8 @@ export default function MagneticCarousel(props) {
                 overflowY: "visible",
                 padding: isMobile ? "0 24px" : "0",
                 scrollSnapType: isMobile ? "x mandatory" : "none",
-                // Allow vertical page scroll to pass through on touch devices
-                touchAction: "pan-y pinch-zoom",
+                // On mobile: allow both axes; on desktop: allow vertical only
+                touchAction: isMobile ? "pan-x" : "pan-y pinch-zoom",
                 WebkitOverflowScrolling: "touch",
             }}
             onMouseMove={onMove}

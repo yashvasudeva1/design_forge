@@ -66,8 +66,14 @@ html {
 .page-section {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 7rem 0 5rem;
+  padding: 5rem 0 4rem;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .page-section {
+    padding: 7rem 0 5rem;
+  }
 }
 
 .container-tight {
@@ -465,7 +471,7 @@ html {
 /* ─── Process Step ───────────────────────────────────────── */
 .process-number {
   font-family: 'Syne', sans-serif;
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 800;
   color: var(--border);
   line-height: 1;
