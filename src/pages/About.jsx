@@ -108,7 +108,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative pb-6 sm:pb-8"
             >
               <div className="aspect-square relative overflow-hidden bg-forge-gray border border-white/5">
                 <img
@@ -173,25 +173,20 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-white/5 bg-white/5">
             {values.map((v, i) => (
-              <motion.div
+              <div
                 key={v.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="bg-black p-6 sm:p-10 group hover:bg-forge-dark transition-colors duration-500"
               >
-                <div className="flex items-start gap-6">
-                  <span className="font-mono text-xs text-forge-crimson mt-1 flex-shrink-0">{v.num}</span>
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <v.icon size={20} className="text-forge-crimson" />
+                  </div>
                   <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <v.icon size={16} className="text-forge-crimson" />
-                      <h3 className="font-display text-lg font-semibold text-white">{v.title}</h3>
-                    </div>
+                    <h3 className="font-display text-lg font-semibold text-white mb-3">{v.title}</h3>
                     <p className="text-white/40 text-sm leading-relaxed">{v.desc}</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -225,12 +220,8 @@ const About = () => {
 
             <div className="lg:col-span-8">
               {process.map((step, i) => (
-                <motion.div
+                <div
                   key={step.num}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
                   className="process-step flex items-start gap-8 py-8 border-b border-white/5 last:border-0 group"
                 >
                   <div className="process-number flex-shrink-0 text-[3rem] sm:text-[5rem]">{step.num}</div>
@@ -240,7 +231,7 @@ const About = () => {
                     </h3>
                     <p className="text-white/30 text-sm">{step.desc}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

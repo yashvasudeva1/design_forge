@@ -120,12 +120,8 @@ const Services = () => {
         <div className="container-tight">
           <div className="divide-y divide-white/5">
             {services.map((service, i) => (
-              <motion.div
+              <div
                 key={service.num}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
                 className="group py-16"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
@@ -146,7 +142,7 @@ const Services = () => {
 
                   {/* Middle - deliverables */}
                   <div className="lg:col-span-4 border-t border-white/5 pt-6 lg:border-0 lg:pt-0">
-                    <h4 className="label mb-5">Deliverables</h4>
+                    <p className="text-white/30 text-xs font-mono uppercase tracking-widest mb-5">Deliverables</p>
                     <ul className="space-y-3">
                       {service.deliverables.map((d, di) => (
                         <li key={di} className="flex items-center gap-3 text-sm text-white/50">
@@ -160,7 +156,7 @@ const Services = () => {
                   {/* Right - timeline + CTA */}
                   <div className="lg:col-span-3 flex flex-col justify-between border-t border-white/5 pt-6 lg:border-0 lg:pt-0">
                     <div>
-                      <h4 className="label mb-3">Timeline</h4>
+                      <p className="text-white/30 text-xs font-mono uppercase tracking-widest mb-3">Timeline</p>
                       <p className="font-display text-lg font-semibold text-white">{service.timeline}</p>
                     </div>
                     <Link
@@ -172,7 +168,7 @@ const Services = () => {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

@@ -357,8 +357,7 @@ const Home = () => {
                   className="service-row group"
                 >
                   <Link to="/services" className="flex items-center justify-between py-5 px-1">
-                    <div className="flex items-center gap-6">
-                      <span className="font-mono text-xs text-forge-crimson w-6">{s.num}</span>
+                    <div className="flex items-center gap-4">
                       <div>
                         <h3 className="font-display text-base font-semibold text-white/80 group-hover:text-white transition-colors">
                           {s.name}
@@ -378,42 +377,65 @@ const Home = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════ */}
-      {/* TESTIMONIAL                                     */}
+      {/* TESTIMONIALS                                    */}
       {/* ═══════════════════════════════════════════════ */}
       <section className="bg-black border-t border-white/5 py-24 md:py-32 overflow-hidden">
         <div className="container-tight">
+          {/* Sparse label — no dash+line decoration to break the repeated pattern */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center gap-3 mb-16"
+            className="mb-14"
           >
-            <div className="w-6 h-px bg-forge-crimson" />
             <span className="label">Client Voices</span>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                className="border-t border-white/10 pt-8"
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-6">
-                  {[...Array(5)].map((_, si) => (
-                    <span key={si} className="text-forge-crimson text-xs">★</span>
-                  ))}
+          {/* Asymmetric: one dominant featured quote + two secondary stacked */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+
+            {/* Featured quote — thicker crimson top border, display-weight type */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+              className="lg:col-span-7 border-t-2 border-forge-crimson pt-10"
+            >
+              <div className="flex gap-1 mb-8">
+                {[...Array(5)].map((_, si) => (
+                  <span key={si} className="text-forge-crimson text-base">★</span>
+                ))}
+              </div>
+              <blockquote className="font-display text-xl sm:text-2xl font-medium italic text-white leading-relaxed mb-8">
+                &ldquo;{testimonials[0].quote}&rdquo;
+              </blockquote>
+              <p className="font-mono text-xs text-forge-crimson tracking-widest uppercase">{testimonials[0].from}</p>
+            </motion.div>
+
+            {/* Two secondary quotes — smaller, italic, dimmer */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="lg:col-span-5 flex flex-col gap-10 pt-0 lg:pt-10"
+            >
+              {testimonials.slice(1).map((t, i) => (
+                <div key={t.id} className="border-t border-white/10 pt-6">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, si) => (
+                      <span key={si} className="text-forge-crimson text-xs">★</span>
+                    ))}
+                  </div>
+                  <blockquote className="text-white/50 text-sm leading-relaxed mb-4 italic">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <p className="font-mono text-xs text-white/25 tracking-widest uppercase">{t.from}</p>
                 </div>
-                <blockquote className="text-white/70 text-sm leading-relaxed mb-6 italic">
-                  "{t.quote}"
-                </blockquote>
-                <p className="font-mono text-xs text-white/25 tracking-widest uppercase">{t.from}</p>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
+
           </div>
         </div>
       </section>
@@ -431,38 +453,43 @@ const Home = () => {
           }}
         />
 
-        <div className="container-tight relative z-10 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="headline-lg text-white mb-6"
-          >
-            Ready to forge<br />your brand?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-white/60 text-sm max-w-md mx-auto mb-12"
-          >
-            Let's transform your vision into a visual identity that endures.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-3 bg-black text-white btn text-sm px-10 py-4 hover:bg-forge-dark transition-colors"
+        <div className="container-tight relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+
+            {/* Left — large headline */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+              className="lg:col-span-7"
             >
-              <span>Start a Project</span>
-              <ArrowRight size={14} />
-            </Link>
-          </motion.div>
+              <h2 className="headline-lg text-white">
+                Ready to forge<br />your brand?
+              </h2>
+            </motion.div>
+
+            {/* Right — copy + CTA */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="lg:col-span-5 flex flex-col items-start gap-8"
+            >
+              <p className="text-white/60 text-sm leading-relaxed max-w-sm">
+                Let's transform your vision into a visual identity that endures.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 bg-black text-white btn text-sm px-10 py-4 hover:bg-forge-dark transition-colors"
+              >
+                <span>Start a Project</span>
+                <ArrowRight size={14} />
+              </Link>
+            </motion.div>
+
+          </div>
         </div>
       </section>
     </div>

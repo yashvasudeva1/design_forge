@@ -15,6 +15,11 @@
   --crimson: #901a1d;
   --crimson-dark: #6b1315;
   --crimson-light: #b52025;
+
+  /* ── Font stacks ────────────────────────────────────────── */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
 }
 
 /* ─── Reset ───────────────────────────────────────────── */
@@ -30,7 +35,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   background-color: var(--black);
   color: var(--white);
   line-height: 1.6;
@@ -56,11 +61,23 @@ html {
   color: var(--white);
 }
 
+/* ─── Focus Visible (Accessibility) ──────────────────────── */
+/* Provide a clear crimson outline for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 3px;
+}
+
+/* Remove default outline only when focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* ─── Typography ──────────────────────────────────────── */
-.font-display { font-family: 'Syne', sans-serif; }
-.font-heading { font-family: 'Poppins', sans-serif; }
-.font-body    { font-family: 'Inter', sans-serif; }
-.font-mono    { font-family: 'JetBrains Mono', monospace; }
+.font-display { font-family: var(--font-display); }
+.font-heading { font-family: var(--font-body); }
+.font-body    { font-family: var(--font-body); }
+.font-mono    { font-family: var(--font-mono); }
 
 /* ─── Layout ──────────────────────────────────────────── */
 .page-section {
@@ -127,33 +144,41 @@ html {
 }
 
 /* ─── Display Headlines ───────────────────────────────── */
+/*
+  Two genuinely distinct typographic voices, not just size scaling:
+    hero (xl)     — weight 400, opsz 72 → elegant, refined, editorial
+    sections (lg) — weight 600, opsz 36 → assertive, grounded, distinct
+*/
 .headline-xl {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: clamp(3rem, 10vw, 9rem);
-  line-height: 0.92;
-  letter-spacing: -0.04em;
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+  font-variation-settings: 'opsz' 72;
 }
 
 .headline-lg {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(2rem, 6vw, 5rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'opsz' 36;
 }
 
 .headline-md {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.5rem, 4vw, 3rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  font-variation-settings: 'opsz' 18;
 }
 
 /* ─── Label / Eyebrow ─────────────────────────────────── */
 .label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -165,7 +190,7 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.85rem;
   letter-spacing: 0.08em;
@@ -227,7 +252,7 @@ html {
   border: none;
   border-bottom: 1px solid var(--border);
   color: var(--white);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   padding: 1rem 0;
   outline: none;
@@ -247,7 +272,7 @@ html {
   background: var(--gray);
   border: 1px solid var(--border);
   color: var(--white);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.9rem;
   padding: 0.9rem 1rem;
   outline: none;
@@ -265,7 +290,7 @@ html {
   border: none;
   border-bottom: 1px solid var(--border);
   color: var(--white);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   padding: 1rem 0;
   outline: none;
@@ -308,7 +333,7 @@ html {
 
 /* ─── Nav ───────────────────────────────────────────────── */
 .nav-link {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -438,7 +463,7 @@ html {
 
 /* ─── Section Divider ────────────────────────────────────── */
 .section-number {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   color: var(--crimson);
@@ -447,10 +472,12 @@ html {
 
 /* ─── Testimonial ────────────────────────────────────────── */
 .testimonial-quote {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1.2rem, 3vw, 2rem);
-  font-weight: 500;
-  line-height: 1.4;
+  font-weight: 400;
+  font-style: italic;
+  font-variation-settings: 'opsz' 36;
+  line-height: 1.45;
   color: var(--white);
 }
 
@@ -470,11 +497,14 @@ html {
 
 /* ─── Process Step ───────────────────────────────────────── */
 .process-number {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 800;
+  font-weight: 300;
+  font-style: italic;
+  font-variation-settings: 'opsz' 72;
   color: var(--border);
   line-height: 1;
+  letter-spacing: -0.03em;
   transition: color 0.4s ease;
 }
 
@@ -485,7 +515,13 @@ html {
 /* ─── Reduced Motion ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
   }
 }

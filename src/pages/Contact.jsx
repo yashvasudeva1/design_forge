@@ -272,20 +272,25 @@ const Contact = () => {
                       </p>
                     </div>
                   </a>
-                  <a
-                    href="tel:+919318378900"
-                    className="flex items-start gap-4 group"
-                  >
-                    <div className="w-8 h-8 flex items-center justify-center border border-white/10 group-hover:border-forge-crimson/50 transition-colors flex-shrink-0">
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-8 h-8 flex items-center justify-center border border-white/10 flex-shrink-0">
                       <Phone size={13} className="text-forge-crimson" />
                     </div>
                     <div>
                       <p className="text-white/30 text-xs font-mono uppercase tracking-widest mb-1">Phone</p>
-                      <p className="text-white/70 text-sm group-hover:text-forge-crimson transition-colors">
-                        +91 93183 78900
-                      </p>
+                      <div className="flex flex-col gap-1">
+                        <a href="tel:+919318378900" className="text-white/70 text-sm hover:text-forge-crimson transition-colors">
+                          +91 93183 78900
+                        </a>
+                        <a href="tel:+919910695553" className="text-white/70 text-sm hover:text-forge-crimson transition-colors">
+                          +91 99106 95553
+                        </a>
+                        <a href="tel:+918368763677" className="text-white/70 text-sm hover:text-forge-crimson transition-colors">
+                          +91 83687 63677
+                        </a>
+                      </div>
                     </div>
-                  </a>
+                  </div>
                 </div>
               </div>
 

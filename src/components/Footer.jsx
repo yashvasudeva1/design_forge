@@ -23,25 +23,9 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="relative bg-forge-dark overflow-hidden">
-      {/* Top big text */}
-      <div className="py-16 md:py-24 overflow-hidden">
-        <div className="container-tight">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="headline-lg text-white/10 leading-none select-none"
-          >
-            DESIGN<br />
-            <span className="text-forge-crimson/20">FORGE</span>
-          </motion.h2>
-        </div>
-      </div>
-
+    <footer className="relative bg-forge-dark border-t border-white/5 overflow-hidden">
       {/* Main footer content */}
-      <div className="container-tight py-16">
+      <div className="container-tight pt-20 pb-16 md:pt-28 md:pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
 
           {/* Brand */}
@@ -55,10 +39,20 @@ const Footer = () => {
                 <Mail size={14} />
                 designforge250@gmail.com
               </a>
-              <a href="tel:+919318378900" className="flex items-center gap-3 text-sm text-white/40 hover:text-forge-crimson transition-colors">
-                <Phone size={14} />
-                +91 93183 78900
-              </a>
+              <div className="flex items-start gap-3">
+                <Phone size={14} className="text-white/40 mt-1 flex-shrink-0" />
+                <div className="flex flex-col gap-2">
+                  <a href="tel:+919318378900" className="text-sm text-white/40 hover:text-forge-crimson transition-colors">
+                    +91 93183 78900
+                  </a>
+                  <a href="tel:+919910695553" className="text-sm text-white/40 hover:text-forge-crimson transition-colors">
+                    +91 99106 95553
+                  </a>
+                  <a href="tel:+918368763677" className="text-sm text-white/40 hover:text-forge-crimson transition-colors">
+                    +91 83687 63677
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

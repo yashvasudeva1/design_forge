@@ -20,9 +20,11 @@ export default {
         'forge-crimson-light': '#b52025',
       },
       fontFamily: {
-        'display': ['Syne', 'sans-serif'],
-        'heading': ['Poppins', 'sans-serif'],
-        'body': ['Inter', 'sans-serif'],
+        // Override default font-sans so nothing falls back to system-ui/Inter accidentally
+        'sans': ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        'display': ['Fraunces', 'Georgia', 'serif'],
+        'heading': ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        'body': ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
         'mono': ['JetBrains Mono', 'monospace'],
       },
       animation: {
