@@ -8,7 +8,7 @@ const contactSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
   'name': 'Contact Design Forge Studio',
-  'url': 'https://design-forge-main.vercel.app/contact',
+  'url': 'https://the-design-forge.vercel.app/contact',
   'description': 'Contact Design Forge design studio in Delhi for logo design, brand identity, and UI/UX project inquiries.',
   'mainEntity': {
     '@type': 'ProfessionalService',

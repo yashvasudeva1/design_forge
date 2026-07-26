@@ -9,7 +9,7 @@ const portfolioSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   'name': 'Design Forge Work & Portfolio',
-  'url': 'https://design-forge-main.vercel.app/portfolio',
+  'url': 'https://the-design-forge.vercel.app/portfolio',
   'description': 'Explore Design Forge portfolio showcasing iconic logo designs, brand identity systems, UI/UX designs, and print collateral crafted in Delhi.'
 }
 

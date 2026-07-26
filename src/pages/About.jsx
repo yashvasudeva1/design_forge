@@ -7,7 +7,7 @@ const aboutSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
   'name': 'About Design Forge Studio',
-  'url': 'https://design-forge-main.vercel.app/about',
+  'url': 'https://the-design-forge.vercel.app/about',
   'description': 'Learn about Design Forge - a Delhi-based creative studio driven by 6+ years of expertise in visual identity, logo design, and brand craftsmanship.',
   'mainEntity': {
     '@type': 'Organization',
