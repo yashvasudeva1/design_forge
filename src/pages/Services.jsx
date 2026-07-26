@@ -10,7 +10,7 @@ const servicesSchema = {
   'provider': {
     '@type': 'LocalBusiness',
     'name': 'Design Forge',
-    'url': 'https://design-forge-main.vercel.app',
+    'url': 'https://the-design-forge.vercel.app',
     'address': {
       '@type': 'PostalAddress',
       'addressLocality': 'Delhi',

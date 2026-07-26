@@ -10,7 +10,7 @@ const homeSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   'name': 'Design Forge',
-  'url': 'https://design-forge-main.vercel.app',
+  'url': 'https://the-design-forge.vercel.app',
   'logo': 'https://the-design-forge.vercel.app/Graphic%20(11).png',
   'image': 'https://the-design-forge.vercel.app/Graphic%20(11).png',
   'description': 'Design Forge is a Delhi-based design studio specializing in logo design, brand identity systems, UI/UX design, and digital experiences.',

@@ -12,7 +12,7 @@ const aboutSchema = {
   'mainEntity': {
     '@type': 'Organization',
     'name': 'Design Forge',
-    'url': 'https://design-forge-main.vercel.app',
+    'url': 'https://the-design-forge.vercel.app',
     'foundingDate': '2020',
     'address': {
       '@type': 'PostalAddress',

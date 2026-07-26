@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-const SITE_URL = 'https://design-forge-main.vercel.app'
+const SITE_URL = 'https://the-design-forge.vercel.app'
 const DEFAULT_IMAGE = `${SITE_URL}/Graphic%20(11).png`
 
 export const SEO = ({
