@@ -4,6 +4,32 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, ArrowDown } from 'lucide-react'
 import CoverflowGallery from '../components/CoverflowGallery'
 import LogoParticle from '../components/LogoParticle'
+import SEO from '../components/SEO'
+
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  'name': 'Design Forge',
+  'url': 'https://design-forge-main.vercel.app',
+  'logo': 'https://design-forge-main.vercel.app/Graphic%20(11).png',
+  'image': 'https://design-forge-main.vercel.app/Graphic%20(11).png',
+  'description': 'Design Forge is a Delhi-based design studio specializing in logo design, brand identity systems, UI/UX design, and digital experiences.',
+  'telephone': ['+91-9318378900', '+91-9910695553', '+91-8368763677'],
+  'email': 'designforge250@gmail.com',
+  'address': {
+    '@type': 'PostalAddress',
+    'addressLocality': 'Delhi',
+    'addressCountry': 'IN'
+  },
+  'priceRange': '$$',
+  'areaServed': ['Delhi', 'India', 'Worldwide'],
+  'serviceType': ['Visual Identity Design', 'Logo Design', 'Branding', 'UI/UX Design', 'Poster Design', 'Social Media Design'],
+  'aggregateRating': {
+    '@type': 'AggregateRating',
+    'ratingValue': '4.9',
+    'reviewCount': '150'
+  }
+}
 
 
 const clientLogos = [
@@ -73,6 +99,12 @@ const Home = () => {
 
   return (
     <div>
+      <SEO
+        title="Design Forge | Visual Identity & Logo Design Studio in Delhi"
+        description="Design Forge is a premier Delhi-based design studio crafting iconic logos, brand identity systems, UI/UX designs, and digital experiences."
+        keywords="design studio delhi, logo design delhi, brand identity studio delhi, UI UX design studio delhi, visual identity design agency"
+        schema={homeSchema}
+      />
 
       {/* ═══════════════════════════════════════════════ */}
       {/* HERO SECTION                                    */}

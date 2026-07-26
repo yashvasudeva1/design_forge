@@ -1,6 +1,32 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Palette, Layers, Share2, Layout, Image, MessageSquare } from 'lucide-react'
+import SEO from '../components/SEO'
+
+const servicesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  'name': 'Design Forge Creative Services',
+  'provider': {
+    '@type': 'LocalBusiness',
+    'name': 'Design Forge',
+    'url': 'https://design-forge-main.vercel.app',
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Delhi',
+      'addressCountry': 'IN'
+    }
+  },
+  'serviceType': [
+    'Logo Design',
+    'Brand Identity Design',
+    'Social Media Design',
+    'UI/UX Design',
+    'Poster & Print Design',
+    'Design Consultancy'
+  ],
+  'areaServed': 'Worldwide'
+}
 
 const services = [
   {
@@ -62,6 +88,13 @@ const services = [
 const Services = () => {
   return (
     <div className="bg-black">
+      <SEO
+        title="Services | Logo Design, Brand Identity & UI/UX Studio Delhi"
+        description="Explore Design Forge services: Custom Logo Design, Brand Identity Systems, UI/UX Design, Social Media Creatives, Poster & Print Design in Delhi."
+        keywords="services design forge, logo design services delhi, brand identity packages india, UI UX design services, poster design services"
+        schema={servicesSchema}
+      />
+
       {/* ── PAGE HEADER ─────────────────────────────────── */}
       <section className="pt-36 pb-20 relative overflow-hidden border-b border-white/5">
         <div className="grid-overlay opacity-15" />
@@ -88,17 +121,7 @@ const Services = () => {
                   transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
                   className="headline-lg text-white"
                 >
-                  Services We
-                </motion.h1>
-              </div>
-              <div className="overflow-hidden">
-                <motion.h1
-                  initial={{ y: '110%' }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1], delay: 0.12 }}
-                  className="headline-lg text-forge-crimson"
-                >
-                  Forge.
+                  Services We <span className="text-forge-crimson">Forge.</span>
                 </motion.h1>
               </div>
             </div>

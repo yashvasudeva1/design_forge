@@ -3,6 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { X, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
 import MagneticCarousel from '../components/MagneticCarousel'
+import SEO from '../components/SEO'
+
+const portfolioSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  'name': 'Design Forge Work & Portfolio',
+  'url': 'https://design-forge-main.vercel.app/portfolio',
+  'description': 'Explore Design Forge portfolio showcasing iconic logo designs, brand identity systems, UI/UX designs, and print collateral crafted in Delhi.'
+}
 
 const optimizeImage = (url) => url.replace('/upload/', '/upload/f_auto,q_auto,w_700/')
 
@@ -137,6 +146,13 @@ const Portfolio = () => {
 
   return (
     <div className="bg-black">
+      <SEO
+        title="Portfolio & Case Studies | Logo & Brand Identity Work - Design Forge"
+        description="Browse selected projects by Design Forge: Logo design, branding suites, UI/UX interfaces, social media graphics, and print collateral created in Delhi."
+        keywords="design forge portfolio, logo design showcase, brand identity case studies, delhi design agency work, graphic design examples"
+        schema={portfolioSchema}
+      />
+
       {/* ═══════════════════════════════════════════════════ */}
       {/* 3D COVERFLOW SHOWCASE                               */}
       {/* ═══════════════════════════════════════════════════ */}
@@ -166,17 +182,7 @@ const Portfolio = () => {
                   transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
                   className="headline-lg text-white"
                 >
-                  All
-                </motion.h1>
-              </div>
-              <div className="overflow-hidden">
-                <motion.h1
-                  initial={{ y: '110%' }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1], delay: 0.12 }}
-                  className="headline-lg text-forge-crimson"
-                >
-                  Projects.
+                  All <span className="text-forge-crimson">Projects.</span>
                 </motion.h1>
               </div>
             </div>

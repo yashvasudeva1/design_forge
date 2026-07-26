@@ -2,6 +2,26 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Send, CheckCircle, AlertCircle, Phone, Mail, Clock } from 'lucide-react'
+import SEO from '../components/SEO'
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  'name': 'Contact Design Forge Studio',
+  'url': 'https://design-forge-main.vercel.app/contact',
+  'description': 'Contact Design Forge design studio in Delhi for logo design, brand identity, and UI/UX project inquiries.',
+  'mainEntity': {
+    '@type': 'ProfessionalService',
+    'name': 'Design Forge',
+    'telephone': ['+91-9318378900', '+91-9910695553', '+91-8368763677'],
+    'email': 'designforge250@gmail.com',
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Delhi',
+      'addressCountry': 'IN'
+    }
+  }
+}
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', company: '', message: '' })
@@ -47,6 +67,13 @@ const Contact = () => {
 
   return (
     <div className="bg-black">
+      <SEO
+        title="Contact Us | Hire Design Forge Studio in Delhi"
+        description="Get in touch with Design Forge studio in Delhi. Phone: +91 93183 78900, Email: designforge250@gmail.com. Let's discuss your brand identity project."
+        keywords="contact design forge, hire logo designer delhi, design agency contact delhi, brand consultant phone number, graphic design quote delhi"
+        schema={contactSchema}
+      />
+
       {/* ── PAGE HEADER ─────────────────────────────────── */}
       <section className="pt-36 pb-20 relative overflow-hidden border-b border-white/5">
         <div className="grid-overlay opacity-15" />
@@ -73,17 +100,7 @@ const Contact = () => {
                   transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
                   className="headline-lg text-white"
                 >
-                  Let's Forge
-                </motion.h1>
-              </div>
-              <div className="overflow-hidden">
-                <motion.h1
-                  initial={{ y: '110%' }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1], delay: 0.12 }}
-                  className="headline-lg text-forge-crimson"
-                >
-                  Your Brand.
+                  Let's Forge <span className="text-forge-crimson">Your Brand.</span>
                 </motion.h1>
               </div>
             </div>

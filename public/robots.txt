@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Host & Sitemap
+Host: https://design-forge-main.vercel.app
+Sitemap: https://design-forge-main.vercel.app/sitemap.xml

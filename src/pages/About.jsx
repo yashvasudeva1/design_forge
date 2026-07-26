@@ -1,6 +1,26 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Target, Lightbulb, Award, Heart } from 'lucide-react'
+import SEO from '../components/SEO'
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  'name': 'About Design Forge Studio',
+  'url': 'https://design-forge-main.vercel.app/about',
+  'description': 'Learn about Design Forge - a Delhi-based creative studio driven by 6+ years of expertise in visual identity, logo design, and brand craftsmanship.',
+  'mainEntity': {
+    '@type': 'Organization',
+    'name': 'Design Forge',
+    'url': 'https://design-forge-main.vercel.app',
+    'foundingDate': '2020',
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Delhi',
+      'addressCountry': 'IN'
+    }
+  }
+}
 
 const values = [
   {
@@ -40,6 +60,13 @@ const process = [
 const About = () => {
   return (
     <div className="bg-black">
+      <SEO
+        title="About Us | Design Forge - Creative Studio in Delhi"
+        description="Learn about Design Forge: Delhi's visual identity studio. 6+ years of crafting iconic brand identities, logos, and UI/UX experiences."
+        keywords="about design forge, delhi design studio team, brand designers delhi, logo designer profile, visual identity agency india"
+        schema={aboutSchema}
+      />
+
       {/* ── PAGE HEADER ─────────────────────────────────── */}
       <section className="pt-36 pb-20 relative overflow-hidden border-b border-white/5">
         <div className="grid-overlay opacity-15" />
@@ -67,17 +94,7 @@ const About = () => {
                   transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
                   className="headline-lg text-white"
                 >
-                  Where Fire
-                </motion.h1>
-              </div>
-              <div className="overflow-hidden">
-                <motion.h1
-                  initial={{ y: '110%' }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1], delay: 0.12 }}
-                  className="headline-lg text-forge-crimson"
-                >
-                  Meets Precision.
+                  Where Fire <span className="text-forge-crimson">Meets Precision.</span>
                 </motion.h1>
               </div>
             </div>
