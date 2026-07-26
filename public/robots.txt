@@ -3,5 +3,5 @@ User-agent: *
 Allow: /
 
 # Host & Sitemap
-Host: https://design-forge-main.vercel.app
-Sitemap: https://design-forge-main.vercel.app/sitemap.xml
+Host: https://the-design-forge.vercel.app
+Sitemap: https://the-design-forge.vercel.app/sitemap.xml
