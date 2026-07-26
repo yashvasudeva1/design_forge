@@ -83,13 +83,13 @@ const Home = () => {
 
         {/* Crimson glow orb */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(700px,90vw)] h-[min(700px,90vw)] rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(144,26,29,0.12) 0%, transparent 70%)' }}
         />
 
         <motion.div
           style={{ opacity: heroOpacity, y: heroY }}
-          className="container-tight relative z-10 pt-40 pb-28"
+          className="container-tight relative z-10 pt-28 pb-20 sm:pt-40 sm:pb-28"
         >
           {/* Two-column hero layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-center">
@@ -186,16 +186,18 @@ const Home = () => {
       {/* MARQUEE                                         */}
       {/* ═══════════════════════════════════════════════ */}
       <div className="border-y border-white/5 py-10 overflow-hidden bg-forge-dark">
-        <div className="marquee-track flex items-center gap-16 md:gap-24">
-          {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((logo, i) => (
-            <img
-              key={i}
-              src={logo}
-              alt="Client Logo"
-              className="h-14 md:h-20 w-auto object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 mx-8 filter grayscale hover:grayscale-0"
-              loading="lazy"
-            />
-          ))}
+        <div className="marquee-wrapper">
+          <div className="marquee-track flex items-center gap-16 md:gap-24">
+            {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((logo, i) => (
+              <img
+                key={i}
+                src={logo}
+                alt="Client Logo"
+                className="h-14 md:h-20 w-auto object-contain opacity-40 hover:opacity-100 transition-opacity duration-300 mx-8 filter grayscale hover:grayscale-0"
+                loading="lazy"
+              />
+            ))}
+          </div>
         </div>
       </div>
 

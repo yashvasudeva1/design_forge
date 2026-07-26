@@ -118,8 +118,8 @@ const About = () => {
                 />
               </div>
               {/* Year badge */}
-              <div className="absolute -bottom-6 -right-6 bg-forge-crimson px-6 py-4">
-                <div className="font-display text-3xl font-bold text-white">6+</div>
+              <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-forge-crimson px-4 py-3 sm:px-6 sm:py-4">
+                <div className="font-display text-2xl sm:text-3xl font-bold text-white">6+</div>
                 <div className="text-white/70 text-xs uppercase tracking-widest font-mono">Years Active</div>
               </div>
             </motion.div>
@@ -179,7 +179,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-black p-10 group hover:bg-forge-dark transition-colors duration-500"
+                className="bg-black p-6 sm:p-10 group hover:bg-forge-dark transition-colors duration-500"
               >
                 <div className="flex items-start gap-6">
                   <span className="font-mono text-xs text-forge-crimson mt-1 flex-shrink-0">{v.num}</span>
@@ -233,7 +233,7 @@ const About = () => {
                   transition={{ delay: i * 0.08 }}
                   className="process-step flex items-start gap-8 py-8 border-b border-white/5 last:border-0 group"
                 >
-                  <div className="process-number flex-shrink-0">{step.num}</div>
+                  <div className="process-number flex-shrink-0 text-[3rem] sm:text-[5rem]">{step.num}</div>
                   <div className="pt-3">
                     <h3 className="font-display text-xl font-semibold text-white/80 group-hover:text-white transition-colors mb-2">
                       {step.title}

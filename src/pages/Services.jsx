@@ -128,7 +128,7 @@ const Services = () => {
                 transition={{ delay: i * 0.06 }}
                 className="group py-16"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
                   {/* Left */}
                   <div className="lg:col-span-5 flex items-start gap-6">
                     <span className="font-mono text-xs text-forge-crimson mt-1.5 flex-shrink-0">{service.num}</span>
@@ -145,7 +145,7 @@ const Services = () => {
                   </div>
 
                   {/* Middle - deliverables */}
-                  <div className="lg:col-span-4">
+                  <div className="lg:col-span-4 border-t border-white/5 pt-6 lg:border-0 lg:pt-0">
                     <h4 className="label mb-5">Deliverables</h4>
                     <ul className="space-y-3">
                       {service.deliverables.map((d, di) => (
@@ -158,7 +158,7 @@ const Services = () => {
                   </div>
 
                   {/* Right - timeline + CTA */}
-                  <div className="lg:col-span-3 flex flex-col justify-between">
+                  <div className="lg:col-span-3 flex flex-col justify-between border-t border-white/5 pt-6 lg:border-0 lg:pt-0">
                     <div>
                       <h4 className="label mb-3">Timeline</h4>
                       <p className="font-display text-lg font-semibold text-white">{service.timeline}</p>

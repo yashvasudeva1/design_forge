@@ -194,17 +194,17 @@ const Portfolio = () => {
       </section>
 
       {/* Filter bar */}
-      <section className="py-6 bg-forge-dark border-y border-white/5 sticky top-20 z-30">
+      <section className="py-4 sm:py-6 bg-forge-dark border-y border-white/5 sticky top-20 z-30">
         <div className="container-tight">
-          <div className="flex items-center justify-between">
-            <div className="flex flex-wrap gap-2">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide pb-1 flex-1">
               {categories.map(cat => (
                 <motion.button
                   key={cat}
                   onClick={() => { setActiveFilter(cat); setShowAll(false) }}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className={`px-5 py-2 text-xs font-mono uppercase tracking-widest transition-all duration-300 border ${
+                  className={`flex-shrink-0 px-4 py-2 text-xs font-mono uppercase tracking-widest transition-all duration-300 border ${
                     activeFilter === cat
                       ? 'bg-forge-crimson text-white border-forge-crimson'
                       : 'bg-transparent text-white/40 border-white/10 hover:text-white hover:border-white/30'
@@ -214,7 +214,7 @@ const Portfolio = () => {
                 </motion.button>
               ))}
             </div>
-            <span className="text-white/20 text-xs font-mono hidden md:block">
+            <span className="text-white/20 text-xs font-mono hidden md:block flex-shrink-0">
               {filtered.length} project{filtered.length !== 1 ? 's' : ''}
             </span>
           </div>
