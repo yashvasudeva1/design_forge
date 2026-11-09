@@ -239,9 +239,9 @@ export default function App() {
 
                     {/* Right: Interactive LogoParticle Canvas (Hidden completely on mobile/tablet) */}
                     {isDesktop && (
-                      <div className="lg:col-span-5 hidden lg:flex items-center justify-center relative min-h-[420px] xl:min-h-[500px]">
+                      <div className="lg:col-span-5 hidden lg:flex items-center justify-center relative min-h-[340px] xl:min-h-[380px]">
                         <Reveal delay={120}>
-                          <div className="relative w-[380px] h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[520px] xl:h-[520px] 2xl:w-[580px] 2xl:h-[580px] flex items-center justify-center">
+                          <div className="relative w-[300px] h-[300px] lg:w-[350px] lg:h-[350px] xl:w-[390px] xl:h-[390px] flex items-center justify-center">
                             <LogoParticle
                               width="100%"
                               height="100%"
@@ -251,17 +251,17 @@ export default function App() {
                                 sizeUnit: "%",
                                 widthPct: 100,
                                 heightPct: 100,
-                                scale: 15,
+                                scale: 11,
                               }}
-                              particleCount={200}
-                              particleSize={5}
+                              particleCount={180}
+                              particleSize={4}
                               particleShape="circle"
                               particleColor="original"
                               hoverEnabled={false}
                               repulsionEnabled={true}
                               repulsionConfig={{
-                                repulsionForce: 9,
-                                repulsionRadius: 75,
+                                repulsionForce: 8,
+                                repulsionRadius: 65,
                                 repulsionMode: "outside",
                               }}
                             />
