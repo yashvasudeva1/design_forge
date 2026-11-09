@@ -251,7 +251,7 @@ export default function App() {
                                 sizeUnit: "%",
                                 widthPct: 100,
                                 heightPct: 100,
-                                scale: 14,
+                                scale: 13,
                               }}
                               particleCount={200}
                               particleSize={5}
