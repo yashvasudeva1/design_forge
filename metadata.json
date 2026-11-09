@@ -1,0 +1,6 @@
+{
+  "name": "Design Forge - Trove Edition",
+  "description": "A Delhi-based visual identity and logo design studio archive, crafted in the architectural library aesthetic of Trove.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

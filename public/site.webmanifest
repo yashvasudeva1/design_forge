@@ -1,0 +1,17 @@
+{
+  "name": "Design Forge Studio",
+  "short_name": "Design Forge",
+  "description": "Visual Identity and Logo Design Studio based in Delhi, India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#901a1d",
+  "icons": [
+    {
+      "src": "/assets/aistudio/Design_Forge_Brand_Kit__1__5fc52bd1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
