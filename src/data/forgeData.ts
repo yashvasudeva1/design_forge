@@ -540,12 +540,19 @@ export const CLIENT_TESTIMONIALS: ClientTestimonial[] = [
   {
     id: 'voice-2',
     quote:
-      'Timely delivery and really great designs.',
-    role: 'Verified Client · Custom Project',
+      'Couldn’t see any difficulty while coordinating with work, everything seems perfectly.',
+    role: 'Verified Client · Brand Project',
     rating: 5,
   },
   {
     id: 'voice-3',
+    quote:
+      'Timely delivery and really great designs.',
+    role: 'Verified Client · Custom Commission',
+    rating: 5,
+  },
+  {
+    id: 'voice-4',
     quote:
       'Great designs — creative visual execution and very satisfied with the poster work.',
     role: 'Verified Client · Poster Design',

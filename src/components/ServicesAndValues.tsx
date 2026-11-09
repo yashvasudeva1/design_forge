@@ -183,11 +183,11 @@ export const ServicesAndValues: React.FC<ServicesAndValuesProps> = ({
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {CLIENT_TESTIMONIALS.map((item) => (
               <blockquote
                 key={item.id}
-                className="flex flex-col justify-between border border-[var(--border)] bg-[var(--panel)] p-6 sm:p-8"
+                className="flex flex-col justify-between border border-[var(--border)] bg-[var(--panel)] p-6 sm:p-7 transition-all duration-300 hover:border-[#901a1d]/40"
               >
                 <div>
                   <div
@@ -196,7 +196,7 @@ export const ServicesAndValues: React.FC<ServicesAndValuesProps> = ({
                   >
                     ★★★★★
                   </div>
-                  <p className="font-display text-[19px] leading-[1.38] tracking-[-0.01em] text-[var(--foreground)]">
+                  <p className="font-display text-[17px] sm:text-[18px] leading-[1.4] tracking-[-0.01em] text-[var(--foreground)]">
                     “{item.quote}”
                   </p>
                 </div>
