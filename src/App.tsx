@@ -224,9 +224,9 @@ export default function App() {
                       </div>
 
                       {/* Prominent Tip of the Iceberg Callout */}
-                      <div className="mt-4 inline-flex items-center gap-2.5 rounded-full border border-[#901a1d]/30 bg-[#901a1d]/[0.07] px-4 py-2 font-mono text-[11px] text-[var(--foreground)] shadow-sm">
-                        <span className="h-2 w-2 rounded-full bg-[#901a1d] animate-pulse" />
-                        <span className="font-semibold text-[#901a1d] uppercase tracking-[0.12em]">
+                      <div className="mt-4 inline-flex flex-wrap sm:flex-nowrap items-center gap-2 rounded-2xl sm:rounded-full border border-[#901a1d]/30 bg-[#901a1d]/[0.07] px-3.5 sm:px-4 py-2 font-mono text-[11px] text-[var(--foreground)] shadow-xs leading-snug">
+                        <span className="h-2 w-2 rounded-full bg-[#901a1d] animate-pulse shrink-0" />
+                        <span className="font-semibold text-[#901a1d] uppercase tracking-[0.12em] shrink-0">
                           Tip of the iceberg:
                         </span>
                         <span className="text-[var(--muted-foreground)]">

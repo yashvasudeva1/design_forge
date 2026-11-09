@@ -144,11 +144,11 @@ const FeaturedMomentCard: React.FC<{
   }, [project.id]);
 
   const numericAspect = getNumericAspect(project.aspect);
-  const baseH = isMobile ? 250 : 340;
-  const maxCollapsedW = isMobile ? 290 : 470;
-  const expH = isMobile ? 310 : 430;
-  const maxExpW = isMobile ? 320 : 560;
-  const minExpW = isMobile ? 270 : 390;
+  const baseH = isMobile ? 240 : 340;
+  const maxCollapsedW = isMobile ? Math.min(290, typeof window !== 'undefined' ? window.innerWidth - 32 : 290) : 470;
+  const expH = isMobile ? 290 : 430;
+  const maxExpW = isMobile ? Math.min(320, typeof window !== 'undefined' ? window.innerWidth - 28 : 320) : 560;
+  const minExpW = isMobile ? Math.min(260, typeof window !== 'undefined' ? window.innerWidth - 48 : 260) : 390;
 
   const targetH = expanded ? expH : baseH;
   const maxW = expanded ? maxExpW : maxCollapsedW;
@@ -601,6 +601,12 @@ export const MomentsPortfolioWall: React.FC<MomentsPortfolioWallProps> = ({
       }
     };
 
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        updateFromClientCoords(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+
     const onEnter = () => {
       state.hovering = true;
     };
@@ -610,6 +616,7 @@ export const MomentsPortfolioWall: React.FC<MomentsPortfolioWallProps> = ({
 
     window.addEventListener('pointermove', onPointerMove);
     window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
     if (sectionEl) {
       sectionEl.addEventListener('pointerenter', onEnter);
       sectionEl.addEventListener('pointerleave', onLeave);
@@ -618,6 +625,7 @@ export const MomentsPortfolioWall: React.FC<MomentsPortfolioWallProps> = ({
     return () => {
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchstart', onTouchStart);
       if (sectionEl) {
         sectionEl.removeEventListener('pointerenter', onEnter);
         sectionEl.removeEventListener('pointerleave', onLeave);
@@ -946,7 +954,11 @@ export const MomentsPortfolioWall: React.FC<MomentsPortfolioWallProps> = ({
       </div>
 
       {/* 5. Top-Left Category Filter Pills (Black / White / #901A1D) */}
-      <div className="pointer-events-auto absolute left-6 top-6 z-[35] flex flex-wrap items-center gap-1.5 max-w-[75vw]">
+      <div
+        className={`pointer-events-auto absolute left-4 sm:left-6 top-4 sm:top-6 z-[35] flex flex-wrap items-center gap-1.5 max-w-[85vw] sm:max-w-[75vw] transition-opacity duration-300 ${
+          expanded && viewport?.isMobile ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
+      >
         {PROJECT_CATEGORIES.map((category) => {
           const active = selectedCategory === category;
           return (

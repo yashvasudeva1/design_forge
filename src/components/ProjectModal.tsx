@@ -36,14 +36,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
   useEffect(() => {
     if (!project) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
       if (e.key === 'ArrowRight' && onSelectProject) handleStep(1);
       if (e.key === 'ArrowLeft' && onSelectProject) handleStep(-1);
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  });
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [project, onSelectProject, onClose]);
 
   if (!project) return null;
 

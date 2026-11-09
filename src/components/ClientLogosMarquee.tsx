@@ -83,14 +83,14 @@ export const ClientLogosMarquee: React.FC = () => {
         </div>
 
         {/* Rounded-3xl Black Studio Stage Matching Updraft Card Architecture */}
-        <div className="relative overflow-hidden rounded-[32px] border border-black/15 bg-[#080808] py-10 sm:py-12 shadow-[0_24px_56px_-14px_rgba(20,20,19,0.22)]">
+        <div className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] border border-black/15 bg-[#080808] py-6 sm:py-12 shadow-[0_24px_56px_-14px_rgba(20,20,19,0.22)]">
           {/* Edge Fade Mask */}
           <div className="relative z-10 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_7%,black_93%,transparent_100%)]">
-            <div className="forge-marquee-track flex w-max items-center gap-6 px-6">
+            <div className="forge-marquee-track flex w-max items-center gap-3 sm:gap-6 px-3 sm:px-6">
               {marqueeItems.map((logo, idx) => (
                 <div
                   key={`${logo.id}-${idx}`}
-                  className="group relative flex h-[176px] w-[240px] sm:h-[196px] sm:w-[272px] shrink-0 items-center justify-center rounded-[24px] border border-white/[0.09] bg-[#111111] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-white/25 hover:bg-[#151515]"
+                  className="group relative flex h-[120px] w-[180px] sm:h-[196px] sm:w-[272px] shrink-0 items-center justify-center rounded-[18px] sm:rounded-[24px] border border-white/[0.09] bg-[#111111] p-4 sm:p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-white/25 hover:bg-[#151515]"
                   style={{
                     boxShadow:
                       '0 20px 42px -10px rgba(0, 0, 0, 0.92), 0 6px 18px -4px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 rgba(255, 255, 255, 0.08)',

@@ -8,6 +8,16 @@ export const FaqSection: React.FC = () => {
   const activeItem =
     FAQ_ITEMS.find((item) => item.id === activeId) || FAQ_ITEMS[0];
 
+  const handleSelectQuestion = (id: string) => {
+    setActiveId(id);
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      const panel = document.getElementById('faq-answer-panel');
+      if (panel) {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  };
+
   return (
     <section
       id="questions"
@@ -52,7 +62,7 @@ export const FaqSection: React.FC = () => {
                   type="button"
                   role="tab"
                   aria-selected={isSelected}
-                  onClick={() => setActiveId(item.id)}
+                  onClick={() => handleSelectQuestion(item.id)}
                   className={`w-full text-left rounded-[22px] border p-4 sm:p-5 transition-all duration-200 cursor-pointer flex items-start justify-between gap-4 ${
                     isSelected
                       ? 'border-[#901a1d] bg-[#141413] text-white shadow-[var(--elev-3)]'
@@ -85,8 +95,9 @@ export const FaqSection: React.FC = () => {
 
           {/* Right 7 Columns: Active Studio Reply Thread Card */}
           <div
+            id="faq-answer-panel"
             role="tabpanel"
-            className="lg:col-span-7 rounded-[28px] border border-[var(--border)] updraft-card-surface p-7 sm:p-10 shadow-[var(--elev-3)] flex flex-col justify-between min-h-[380px]"
+            className="lg:col-span-7 rounded-[28px] border border-[var(--border)] updraft-card-surface p-6 sm:p-10 shadow-[var(--elev-3)] flex flex-col justify-between min-h-[360px] sm:min-h-[380px]"
           >
             <div>
               {/* Top Thread Header */}

@@ -281,7 +281,7 @@ export const ProcessDeck: React.FC<ProcessDeckProps> = ({ onStartProject }) => {
                 <p className="max-w-[420px] text-[15px] leading-[1.55] text-[var(--muted-foreground)] lg:text-right">
                   Three acts, zero mystery. Scroll and watch a raw idea move from studio research to a timeless brand identity.
                 </p>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 overflow-x-auto scrollbar-none max-w-full pb-1 touch-scroll">
                   {stageTitles.map((label, idx) => {
                     const active = activeStageIndex === idx;
                     return (
@@ -589,7 +589,7 @@ export const ProcessDeck: React.FC<ProcessDeckProps> = ({ onStartProject }) => {
                               <div className="font-mono text-[9px] uppercase tracking-[0.14em] text-white/50 mb-2">
                                 Verified Chromatic Tokens
                               </div>
-                              <div className="flex items-center gap-2">
+                              <div className="flex items-center gap-2 overflow-x-auto scrollbar-none max-w-full pb-1 touch-scroll">
                                 {currentStudy.palette.map((hex, i) => (
                                   <div
                                     key={`${hex}-${i}`}

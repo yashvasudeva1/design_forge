@@ -40,53 +40,53 @@ export const TroveFooter: React.FC<TroveFooterProps> = ({
         </p>
 
         <footer className="col-span-full grid grid-cols-1 gap-y-2 text-[11px] text-[var(--muted-foreground)] sm:grid-cols-[1fr_auto] sm:items-center lg:col-span-5 lg:col-start-8">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 sm:col-start-1 sm:row-start-1">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 py-1 sm:col-start-1 sm:row-start-1">
             <a
               href="/"
               onClick={(e) => handleNavClick(e, '/')}
-              className="transition-colors hover:text-[#901a1d]"
+              className="py-1 transition-colors hover:text-[#901a1d]"
             >
               Home
             </a>
             <a
               href="/about"
               onClick={(e) => handleNavClick(e, '/about')}
-              className="transition-colors hover:text-[#901a1d]"
+              className="py-1 transition-colors hover:text-[#901a1d]"
             >
               About
             </a>
             <a
               href="/services"
               onClick={(e) => handleNavClick(e, '/services')}
-              className="transition-colors hover:text-[#901a1d]"
+              className="py-1 transition-colors hover:text-[#901a1d]"
             >
               Services
             </a>
             <a
               href="/portfolio"
               onClick={(e) => handleNavClick(e, '/portfolio')}
-              className="transition-colors hover:text-[#901a1d]"
+              className="py-1 transition-colors hover:text-[#901a1d]"
             >
               Portfolio
             </a>
             <a
               href="/contact"
               onClick={(e) => handleNavClick(e, '/contact')}
-              className="transition-colors hover:text-[#901a1d]"
+              className="py-1 transition-colors hover:text-[#901a1d]"
             >
               Contact
             </a>
             <a
               href="/terms"
               onClick={(e) => handleNavClick(e, '/terms')}
-              className="transition-colors hover:text-[#901a1d]"
+              className="py-1 transition-colors hover:text-[#901a1d]"
             >
               Terms
             </a>
             <a
               href="/privacy"
               onClick={(e) => handleNavClick(e, '/privacy')}
-              className="transition-colors hover:text-[#901a1d]"
+              className="py-1 transition-colors hover:text-[#901a1d]"
             >
               Privacy
             </a>

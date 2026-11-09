@@ -48,11 +48,16 @@ export const BriefModal: React.FC<BriefModalProps> = ({
 
   useEffect(() => {
     if (!isOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, [isOpen, onClose]);
 
   const progress = useMemo(
@@ -371,7 +376,7 @@ export const BriefModal: React.FC<BriefModalProps> = ({
                         if (errors.name) setErrors({ ...errors, name: undefined });
                       }}
                       placeholder="Aarav Sharma"
-                      className={`w-full min-h-[44px] border bg-[var(--shell)]/40 px-3.5 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 focus:outline-none focus:border-[#901a1d] transition-colors duration-150 ${
+                      className={`w-full min-h-[44px] border bg-[var(--shell)]/40 px-3.5 py-2.5 text-base sm:text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 focus:outline-none focus:border-[#901a1d] transition-colors duration-150 ${
                         errors.name ? 'border-[#901a1d]' : 'border-[var(--border)]'
                       }`}
                     />
@@ -405,7 +410,7 @@ export const BriefModal: React.FC<BriefModalProps> = ({
                         if (errors.email) setErrors({ ...errors, email: undefined });
                       }}
                       placeholder="aarav@company.com"
-                      className={`w-full min-h-[44px] border bg-[var(--shell)]/40 px-3.5 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 focus:outline-none focus:border-[#901a1d] transition-colors duration-150 ${
+                      className={`w-full min-h-[44px] border bg-[var(--shell)]/40 px-3.5 py-2.5 text-base sm:text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 focus:outline-none focus:border-[#901a1d] transition-colors duration-150 ${
                         errors.email ? 'border-[#901a1d]' : 'border-[var(--border)]'
                       }`}
                     />
@@ -432,7 +437,7 @@ export const BriefModal: React.FC<BriefModalProps> = ({
                     id="brief-service"
                     value={service}
                     onChange={(e) => setService(e.target.value)}
-                    className="w-full min-h-[44px] border border-[var(--border)] bg-[var(--shell)]/40 px-3.5 py-2.5 text-sm text-[var(--foreground)] focus:outline-none focus:border-[#901a1d]"
+                    className="w-full min-h-[44px] border border-[var(--border)] bg-[var(--shell)]/40 px-3.5 py-2.5 text-base sm:text-sm text-[var(--foreground)] focus:outline-none focus:border-[#901a1d]"
                   >
                     {FORGE_SERVICES.map((s) => (
                       <option key={s.slug} value={s.title}>
@@ -465,7 +470,7 @@ export const BriefModal: React.FC<BriefModalProps> = ({
                       if (errors.message) setErrors({ ...errors, message: undefined });
                     }}
                     placeholder="Tell us about your project, goals, and any inspiration you have..."
-                    className={`w-full border bg-[var(--shell)]/40 px-3.5 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 focus:outline-none focus:border-[#901a1d] transition-colors duration-150 ${
+                    className={`w-full border bg-[var(--shell)]/40 px-3.5 py-2.5 text-base sm:text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 focus:outline-none focus:border-[#901a1d] transition-colors duration-150 ${
                       errors.message ? 'border-[#901a1d]' : 'border-[var(--border)]'
                     }`}
                   />

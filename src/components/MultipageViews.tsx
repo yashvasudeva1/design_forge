@@ -731,7 +731,7 @@ export const ContactPage: React.FC<{
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="John Doe"
-                      className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] px-4 py-3 text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
+                      className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] px-4 py-3 text-base sm:text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
                     />
                     {errors.name && (
                       <p className="mt-1 font-mono text-[11px] text-[#901a1d]">{errors.name}</p>
@@ -751,7 +751,7 @@ export const ContactPage: React.FC<{
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="john@company.com"
-                      className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] px-4 py-3 text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
+                      className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] px-4 py-3 text-base sm:text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
                     />
                     {errors.email && (
                       <p className="mt-1 font-mono text-[11px] text-[#901a1d]">{errors.email}</p>
@@ -773,7 +773,7 @@ export const ContactPage: React.FC<{
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
                       placeholder="Your Company Ltd."
-                      className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] px-4 py-3 text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
+                      className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] px-4 py-3 text-base sm:text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
                     />
                   </div>
 
@@ -788,7 +788,7 @@ export const ContactPage: React.FC<{
                       id="contact-service"
                       value={service}
                       onChange={(e) => setService(e.target.value)}
-                      className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] px-4 py-3 text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
+                      className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] px-4 py-3 text-base sm:text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
                     >
                       {FORGE_SERVICES.map((s) => (
                         <option key={s.num} value={s.title}>
@@ -812,7 +812,7 @@ export const ContactPage: React.FC<{
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Tell us about your project, goals, timeline, and budget..."
-                    className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] p-4 text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-[var(--border)] bg-[var(--shell)] p-4 text-base sm:text-sm text-[var(--foreground)] focus:border-[#901a1d] focus:outline-none"
                   />
                   {errors.message && (
                     <p className="mt-1 font-mono text-[11px] text-[#901a1d]">{errors.message}</p>

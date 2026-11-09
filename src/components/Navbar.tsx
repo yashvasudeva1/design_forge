@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="sticky top-0 z-40 w-full pt-4 pb-2 px-4 sm:px-6 lg:px-10 pointer-events-none">
       <div className="mx-auto w-full max-w-[1380px] pointer-events-auto">
         <div
-          className={`flex h-16 w-full items-center justify-between gap-8 rounded-full border border-black/10 px-5 sm:px-7 transition-all duration-300 ${
+          className={`flex h-15 sm:h-16 w-full items-center justify-between gap-3 sm:gap-8 rounded-full border border-black/10 px-3.5 sm:px-7 transition-all duration-300 ${
             scrolled
               ? 'bg-white/95 backdrop-blur-xl shadow-[0_14px_34px_rgba(20,20,19,0.10)]'
               : 'bg-white/90 backdrop-blur-md shadow-[0_8px_24px_rgba(20,20,19,0.06)]'
@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <img
               src="/assets/aistudio/Design_Forge_Brand_Kit_fb5ce520.png"
               alt="Design Forge - Forging Ideas Into Reality"
-              className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
               draggable={false}
             />
           </a>
@@ -114,14 +114,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => onStartProject()}
-              className="group inline-flex items-center gap-3 rounded-full bg-[#901a1d] hover:bg-[#141413] dark:hover:bg-white dark:hover:text-[#141413] text-white pl-5 pr-1.5 py-1.5 text-[13px] font-semibold tracking-[-0.01em] transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer shadow-[0_6px_18px_rgba(144,26,29,0.25)]"
+              className="group inline-flex items-center gap-2 sm:gap-3 rounded-full bg-[#901a1d] hover:bg-[#141413] dark:hover:bg-white dark:hover:text-[#141413] text-white pl-3.5 sm:pl-5 pr-1 sm:pr-1.5 py-1 sm:py-1.5 text-[12px] sm:text-[13px] font-semibold tracking-[-0.01em] transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer shadow-[0_6px_18px_rgba(144,26,29,0.25)] active:scale-95"
             >
               <span>Start a project</span>
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#141413] text-white dark:group-hover:bg-[#901a1d] transition-transform duration-200 group-hover:rotate-12">
+              <span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#141413] text-white dark:group-hover:bg-[#901a1d] transition-transform duration-200 group-hover:rotate-12">
                 <svg
                   viewBox="0 0 16 16"
                   fill="none"
-                  className="h-3.5 w-3.5"
+                  className="h-3 w-3 sm:h-3.5 sm:w-3.5"
                   aria-hidden="true"
                 >
                   <path
@@ -137,10 +137,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
 
-        {/* Mobile Route Bar */}
+        {/* Mobile Route Bar with Momentum Touch Scroll */}
         <nav
           aria-label="Mobile page navigation"
-          className="mt-2 flex md:hidden items-center justify-between gap-1.5 overflow-x-auto rounded-full border border-[var(--border)] bg-[var(--panel)]/90 backdrop-blur-md px-3 py-1.5 text-[12px] font-medium shadow-[var(--elev-1)]"
+          className="mt-2 flex md:hidden items-center justify-between gap-1 overflow-x-auto scrollbar-none rounded-full border border-[var(--border)] bg-[var(--panel)]/95 backdrop-blur-md px-2 py-1 text-[12px] font-medium shadow-[var(--elev-1)] touch-scroll"
         >
           {NAV_PAGES.map((item) => {
             const isActive = currentPage === item.path;
@@ -149,9 +149,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={item.path}
                 href={item.path}
                 onClick={(e) => handleLinkClick(e, item.path)}
-                className={`rounded-full px-3 py-1 whitespace-nowrap shrink-0 transition-colors ${
+                className={`rounded-full px-3 py-1.5 min-h-[36px] flex items-center justify-center whitespace-nowrap shrink-0 transition-colors active:scale-95 ${
                   isActive
-                    ? 'bg-[#901a1d] text-white font-semibold'
+                    ? 'bg-[#901a1d] text-white font-semibold shadow-xs'
                     : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)]'
                 }`}
               >
