@@ -70,6 +70,7 @@ const CARD_HEIGHTS: Record<number, string> = {
   12: 'h-[340px] sm:h-[370px]',
   2: 'h-[310px] sm:h-[330px]',
   3: 'h-[310px] sm:h-[330px]',
+  26: 'h-[320px] sm:h-[350px]',
 };
 
 export default function App() {

@@ -6,7 +6,7 @@ This ledger acts as the single source of truth for all projects in the Design Fo
 
 ## 📊 Summary Status
 
-- **Active Portfolio Works**: 12 (100% Mockups)
+- **Active Portfolio Works**: 13 (100% Mockups)
 - **Non-Mockup Designs**: Removed
 - **Client Roster Updated**: Added **Opticlick** (with vector logo)
 - **Branding Mistakes Project**: Fully removed
@@ -27,6 +27,7 @@ This ledger acts as the single source of truth for all projects in the Design Fo
 | **6** | Safdurjung Photowalk | Digital | Opticlick | `PHOTOWALK (1).jpg` | Monochromatic architectural event poster on easel: "Opticlick Safdurjung Tomb - The Finale (20 Sep)". |
 | **10** | Cirola Pamphlet | Print | Ciróla | `Design Forge Brand Kit (9).jpg` | Printed fresh-produce commercial pamphlet held in hands: "Ciróla - Your Quality Partner for Every Plate". |
 | **11** | Aggarwal PG | Print | Aggarwal Living | `Aggarwal PG.jpg` | Printed hospitality identity cards on marble table: "Aggarwal PG - Premium Living Peaceful Stay". |
+| **26** | Aggarwal Living Mural | Branding | Aggarwal Living | `aggarwal living mockup.jpg` | Reception lobby modular jigsaw puzzle wall mural showcasing 16 student housing amenities. |
 | **12** | Darima Cheese | Print | Darima Cheese | `cirola.jpg` | Handcrafted gourmet cheese flyer held in hands: "Crafted to Impress - Darima Cheese". |
 | **3** | Take A Brain Break | Print | Mental Health Initiative | `Design Forge Brand Kit (5).jpg` | "TAKE A BRAIN BREAK - Mental Health" card with red envelope stationery. |
 | **9** | Quantum Cybershield | Print | BPIT Research | `Design Forge Brand Kit (3).jpg` | Framed academic wall poster: "Quantum Cybershield - Securing The Future (NSQP 2.0 / Team Spark)". |
