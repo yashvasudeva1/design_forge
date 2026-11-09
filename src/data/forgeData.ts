@@ -532,20 +532,23 @@ export const PROCESS_STEPS: ProcessStep[] = [
 export const CLIENT_TESTIMONIALS: ClientTestimonial[] = [
   {
     id: 'voice-1',
-    quote: 'Absolutely thrilled with the service. The team was professional, creative and attentive to every detail. They delivered ahead of time.',
-    role: 'Client · Branding Project',
+    quote:
+      'Absolutely thrilled with the service! The team was professional, creative and attentive to every detail. They delivered ahead of time and even the smallest changes were made happily. Highly recommend their work to anyone looking for unique and high quality designs.',
+    role: 'Verified Client · Logo Design',
     rating: 5,
   },
   {
     id: 'voice-2',
-    quote: 'Highly recommend their work to anyone looking for unique and high quality designs. They exceeded every expectation.',
-    role: 'Client · Logo Design',
+    quote:
+      'Timely delivery and really great designs.',
+    role: 'Verified Client · Custom Project',
     rating: 5,
   },
   {
     id: 'voice-3',
-    quote: 'Design Forge doesn’t just create designs - they forge experiences. Our rebrand has completely elevated how customers perceive us.',
-    role: 'Client · Full Rebrand',
+    quote:
+      'Great designs — creative visual execution and very satisfied with the poster work.',
+    role: 'Verified Client · Poster Design',
     rating: 5,
   },
 ];
