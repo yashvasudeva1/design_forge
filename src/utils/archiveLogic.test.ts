@@ -12,11 +12,11 @@ import {
 import { FORGE_PROJECTS } from '../data/forgeData';
 
 test('FORGE_PROJECTS contains all authentic Design Forge mockup works', () => {
-  assert.equal(FORGE_PROJECTS.length, 13);
+  assert.equal(FORGE_PROJECTS.length, 12);
   const counts = getCategoryCounts(FORGE_PROJECTS);
-  assert.equal(counts.All, 13);
+  assert.equal(counts.All, 12);
   assert.equal(counts.Logos, 2);
-  assert.equal(counts.Branding, 3);
+  assert.equal(counts.Branding, 2);
   assert.equal(counts.Digital, 2);
   assert.equal(counts.Print, 6);
 });
@@ -51,7 +51,7 @@ test('distributeIntoMasonryLanes distributes items evenly across 5 lanes', () =>
   const lanes = distributeIntoMasonryLanes(FORGE_PROJECTS, 5);
   assert.equal(lanes.length, 5);
   const totalItems = lanes.reduce((sum, lane) => sum + lane.length, 0);
-  assert.equal(totalItems, 13);
+  assert.equal(totalItems, 12);
   assert.ok(lanes.every((lane) => lane.length >= 2 && lane.length <= 3));
 });
 

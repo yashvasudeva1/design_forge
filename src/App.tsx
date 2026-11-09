@@ -42,7 +42,7 @@ function resolvePathToRoute(pathname: string): PageRoute {
 }
 
 const CURATED_COLUMN_IDS: number[][] = [
-  [8, 7],    // Col 1: Elysium Logo, Personalised Gifts Mockup
+  [8, 26],   // Col 1: Elysium Logo, Aggarwal Living Mural
   [6, 9],    // Col 2: Safdurjung Photowalk, Research Poster
   [10, 20],  // Col 3: Cirola Pamphlet, Education Poster
   [11, 15],  // Col 4: Aggarwal PG, Oh Wow Gifts Logo
@@ -59,7 +59,6 @@ const COLUMN_OFFSETS = [
 
 const CARD_HEIGHTS: Record<number, string> = {
   8: 'h-[340px] sm:h-[370px]',
-  7: 'h-[290px] sm:h-[310px]',
   6: 'h-[350px] sm:h-[380px]',
   9: 'h-[300px] sm:h-[320px]',
   10: 'h-[350px] sm:h-[380px]',

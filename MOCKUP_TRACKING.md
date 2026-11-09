@@ -6,8 +6,9 @@ This ledger acts as the single source of truth for all projects in the Design Fo
 
 ## 📊 Summary Status
 
-- **Active Portfolio Works**: 13 (100% Mockups)
+- **Active Portfolio Works**: 12 (100% Mockups)
 - **Non-Mockup Designs**: Removed
+- **Duplicate Entries**: Consolidated Oh Wow Gifts (kept blade sign mockup #15, removed duplicate merchandise #7)
 - **Client Roster Updated**: Added **Opticlick** (with vector logo)
 - **Branding Mistakes Project**: Fully removed
 - **Mockups Directory**: `public/assets/mockups/`
@@ -22,7 +23,6 @@ This ledger acts as the single source of truth for all projects in the Design Fo
 | **8** | Elysium Logo | Logos | Elysium | `Design Forge Brand Kit (7).jpg` | Burgundy polo shirt with embroidered circular Elysium logo mark on chest. |
 | **15** | Oh Wow Gifts Logo | Logos | Oh Wow Gifts | `Oh Wow Gifts.png` | Circular hanging outdoor blade sign on storefront brick facade. |
 | **5** | T-Shirt Designs | Branding | Namespace BPIT | `Design Forge Brand Kit (4).jpg` | Model wearing black t-shirt with white "JUNIOR COUNCIL 2025" 3D cube graphics. |
-| **7** | Personalised Gifts | Branding | Oh Wow Gifts | `Oh wow Gifts Post.jpg` | Tabletop studio merchandise set featuring custom mug, craft gift box, and tote bags. |
 | **2** | Festival Story Design | Digital | Rotaract District 3012 | `Design Forge Brand Kit (6).jpg` | Smartphone in hand displaying festive Ganesh Chaturthi Instagram story template. |
 | **6** | Safdurjung Photowalk | Digital | Opticlick | `PHOTOWALK (1).jpg` | Monochromatic architectural event poster on easel: "Opticlick Safdurjung Tomb - The Finale (20 Sep)". |
 | **10** | Cirola Pamphlet | Print | Ciróla | `Design Forge Brand Kit (9).jpg` | Printed fresh-produce commercial pamphlet held in hands: "Ciróla - Your Quality Partner for Every Plate". |
