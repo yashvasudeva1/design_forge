@@ -389,7 +389,7 @@ export default function ParticleImage(__props) {
                                 r: px[i],
                                 g: px[i + 1],
                                 b: px[i + 2],
-                                a: px[i + 3],
+                                a: 255, // Solid full opacity
                             })
                     }
                 shuffle(src)
@@ -544,7 +544,7 @@ export default function ParticleImage(__props) {
             }
             const mx = sm.x
             const my = sm.y
-            const ps = Math.max(1, Math.ceil((pSz / 4) * dpr))
+            const ps = Math.max(2, Math.ceil((pSz / 3) * dpr))
             const { easeFn, durMs } = getTransitionParams(tr)
             const elapsed = Date.now() - animStartTimeRef.current
             const animT = easeFn(Math.min(1, elapsed / durMs))
@@ -689,7 +689,11 @@ export default function ParticleImage(__props) {
                     dr = p.r
                     dg = p.g
                     db = p.b
-                    da = p.a
+                    da = 255 // Crisp solid opacity
+                    const isDark = typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+                    if (isDark && dr < 40 && dg < 40 && db < 40) {
+                        dr = 245; dg = 243; db = 239
+                    }
                 } else if (p.isExtra) {
                     dr = p.r
                     dg = p.g

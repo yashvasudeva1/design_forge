@@ -51,11 +51,11 @@ const CURATED_COLUMN_IDS: number[][] = [
 ];
 
 const COLUMN_OFFSETS = [
-  'lg:mt-0',
+  'lg:mt-40',
+  'lg:mt-30',
+  'lg:mt-20',
   'lg:mt-10',
-  'lg:mt-4',
-  'lg:mt-14',
-  'lg:mt-8',
+  'lg:mt-0',
 ];
 
 const CARD_HEIGHTS: Record<number, string> = {
@@ -82,6 +82,15 @@ export default function App() {
   const [preselectedService, setPreselectedService] = useState<string>('Logo Design');
   const [initialBriefNote, setInitialBriefNote] = useState<string>('');
   const [isDark, setIsDark] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth >= 1024 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const curatedColumns = useMemo(() => {
     return CURATED_COLUMN_IDS.map((colIds) =>
@@ -228,36 +237,38 @@ export default function App() {
                       </Reveal>
                     </div>
 
-                    {/* Right: Interactive LogoParticle Canvas */}
-                    <div className="lg:col-span-5 hidden lg:flex items-center justify-center relative min-h-[380px] xl:min-h-[440px]">
-                      <Reveal delay={120}>
-                        <div className="relative w-[340px] h-[340px] xl:w-[420px] xl:h-[420px] flex items-center justify-center">
-                          <LogoParticle
-                            width="100%"
-                            height="100%"
-                            imageConfig={{
-                              image: "/Graphic (11).png",
-                              mode: "fit",
-                              sizeUnit: "%",
-                              widthPct: 100,
-                              heightPct: 100,
-                              scale: 11,
-                            }}
-                            particleCount={180}
-                            particleSize={3}
-                            particleShape="circle"
-                            particleColor="original"
-                            hoverEnabled={false}
-                            repulsionEnabled={true}
-                            repulsionConfig={{
-                              repulsionForce: 8,
-                              repulsionRadius: 60,
-                              repulsionMode: "outside",
-                            }}
-                          />
-                        </div>
-                      </Reveal>
-                    </div>
+                    {/* Right: Interactive LogoParticle Canvas (Hidden completely on mobile/tablet) */}
+                    {isDesktop && (
+                      <div className="lg:col-span-5 hidden lg:flex items-center justify-center relative min-h-[420px] xl:min-h-[500px]">
+                        <Reveal delay={120}>
+                          <div className="relative w-[380px] h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[520px] xl:h-[520px] 2xl:w-[580px] 2xl:h-[580px] flex items-center justify-center">
+                            <LogoParticle
+                              width="100%"
+                              height="100%"
+                              imageConfig={{
+                                image: "/Graphic (11).png",
+                                mode: "fit",
+                                sizeUnit: "%",
+                                widthPct: 100,
+                                heightPct: 100,
+                                scale: 15,
+                              }}
+                              particleCount={200}
+                              particleSize={5}
+                              particleShape="circle"
+                              particleColor="original"
+                              hoverEnabled={false}
+                              repulsionEnabled={true}
+                              repulsionConfig={{
+                                repulsionForce: 9,
+                                repulsionRadius: 75,
+                                repulsionMode: "outside",
+                              }}
+                            />
+                          </div>
+                        </Reveal>
+                      </div>
+                    )}
                   </div>
 
                   {/* Staggered Curated Showcase Grid (Shifted below hero & interactive logo) */}
