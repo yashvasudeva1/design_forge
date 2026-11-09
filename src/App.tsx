@@ -9,7 +9,7 @@ import { ProcessDeck } from './components/ProcessDeck';
 import { ClientLogosMarquee } from './components/ClientLogosMarquee';
 import { ProjectModal } from './components/ProjectModal';
 import { BriefModal } from './components/BriefModal';
-import LogoParticle from './components/LogoParticle';
+// import LogoParticle from './components/LogoParticle';
 import { TroveFooter, PageRoute } from './components/TroveFooter';
 import { Reveal } from './components/Reveal';
 import {
@@ -82,15 +82,6 @@ export default function App() {
   const [preselectedService, setPreselectedService] = useState<string>('Logo Design');
   const [initialBriefNote, setInitialBriefNote] = useState<string>('');
   const [isDark, setIsDark] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(() =>
-    typeof window !== 'undefined' ? window.innerWidth >= 1024 : false
-  );
-
-  useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const curatedColumns = useMemo(() => {
     return CURATED_COLUMN_IDS.map((colIds) =>
@@ -180,99 +171,63 @@ export default function App() {
                 className="pt-8 sm:pt-12 lg:pt-16 pb-20 lg:pb-28 overflow-hidden"
               >
                 <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
-                  {/* Hero Row: Left Proposition + Right Interactive Particle Logo */}
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-                    {/* Left: Hero Proposition & Actions */}
-                    <div className="lg:col-span-7 relative z-10 max-w-[760px]">
-                      <Reveal>
-                        <h1 className="font-display text-[clamp(44px,6.0vw,88px)] leading-[0.94] tracking-[-0.035em] text-[var(--foreground)]">
-                          We forge brands that{' '}
-                          <span className="font-editorial italic font-normal text-[#901a1d]">
-                            ignite
-                          </span>{' '}
-                          and endure.
-                        </h1>
-                      </Reveal>
+                  {/* Hero Proposition & Actions */}
+                  <div className="relative z-10 max-w-[760px]">
+                    <Reveal>
+                      <h1 className="font-display text-[clamp(46px,6.4vw,92px)] leading-[0.94] tracking-[-0.035em] text-[var(--foreground)]">
+                        We forge brands that{' '}
+                        <span className="font-editorial italic font-normal text-[#901a1d]">
+                          ignite
+                        </span>{' '}
+                        and endure.
+                      </h1>
+                    </Reveal>
 
-                      <Reveal delay={90}>
-                        <p className="mt-6 max-w-[540px] text-[17px] sm:text-[19px] leading-[1.55] text-[var(--muted-foreground)]">
-                          <span className="text-[var(--foreground)] font-semibold">
-                            Visual identity, tempered with creative fire and precision.
-                          </span>{' '}
-                          Design Forge is a Delhi graphic design studio shaping unmistakable logos, cohesive brand systems, tactile print collateral, and digital experiences built to last.
-                        </p>
+                    <Reveal delay={90}>
+                      <p className="mt-6 max-w-[540px] text-[17px] sm:text-[19px] leading-[1.55] text-[var(--muted-foreground)]">
+                        <span className="text-[var(--foreground)] font-semibold">
+                          Visual identity, tempered with creative fire and precision.
+                        </span>{' '}
+                        Design Forge is a Delhi graphic design studio shaping unmistakable logos, cohesive brand systems, tactile print collateral, and digital experiences built to last.
+                      </p>
 
-                        <div className="mt-8 flex flex-wrap items-center gap-4">
-                          <button
-                            type="button"
-                            onClick={() => handleStartProject('Brand Identity')}
-                            className="group inline-flex items-center gap-3 rounded-full bg-[#141413] dark:bg-white pl-6 pr-2 py-2 text-[14px] font-nav font-semibold text-white dark:text-[#141413] hover:bg-[#901a1d] dark:hover:bg-[#901a1d] dark:hover:text-white transition-colors duration-200 cursor-pointer shadow-[0_12px_28px_rgba(20,20,19,0.16)]"
-                          >
-                            <span>Start a project</span>
-                            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#901a1d] text-white group-hover:bg-white group-hover:text-[#141413] transition-transform duration-200 group-hover:translate-x-0.5">
-                              <ArrowUpRight className="w-4 h-4" />
-                            </span>
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={() => handleNavigate('/portfolio')}
-                            className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--panel)]/80 px-6 py-3.5 text-[14px] font-nav font-semibold text-[var(--foreground)] hover:border-[#901a1d] hover:text-[#901a1d] transition-colors duration-200 cursor-pointer"
-                          >
-                            <span>Explore Portfolio</span>
-                            <ArrowUpRight className="w-4 h-4 text-[#901a1d]" />
-                          </button>
-                        </div>
-
-                        <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--muted-foreground)]">
-                          <span className="inline-flex items-center gap-2 text-[var(--foreground)] font-medium">
-                            <ForgeMark className="w-4 h-4" />
-                            <span>Delhi, India</span>
+                      <div className="mt-8 flex flex-wrap items-center gap-4">
+                        <button
+                          type="button"
+                          onClick={() => handleStartProject('Brand Identity')}
+                          className="group inline-flex items-center gap-3 rounded-full bg-[#141413] dark:bg-white pl-6 pr-2 py-2 text-[14px] font-nav font-semibold text-white dark:text-[#141413] hover:bg-[#901a1d] dark:hover:bg-[#901a1d] dark:hover:text-white transition-colors duration-200 cursor-pointer shadow-[0_12px_28px_rgba(20,20,19,0.16)]"
+                        >
+                          <span>Start a project</span>
+                          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#901a1d] text-white group-hover:bg-white group-hover:text-[#141413] transition-transform duration-200 group-hover:translate-x-0.5">
+                            <ArrowUpRight className="w-4 h-4" />
                           </span>
-                          <span>·</span>
-                          <span>No templates. Just craft.</span>
-                          <span>·</span>
-                          <span className="text-[#901a1d] font-semibold">10 Curated Works Below</span>
-                        </div>
-                      </Reveal>
-                    </div>
+                        </button>
 
-                    {/* Right: Interactive LogoParticle Canvas (Hidden completely on mobile/tablet) */}
-                    {isDesktop && (
-                      <div className="lg:col-span-5 hidden lg:flex items-center justify-center relative min-h-[420px] xl:min-h-[480px]">
-                        <Reveal delay={120}>
-                          <div className="relative w-[380px] h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[480px] xl:h-[480px] 2xl:w-[520px] 2xl:h-[520px] flex items-center justify-center">
-                            <LogoParticle
-                              width="100%"
-                              height="100%"
-                              imageConfig={{
-                                image: "/Graphic (11).png",
-                                mode: "fit",
-                                sizeUnit: "%",
-                                widthPct: 100,
-                                heightPct: 100,
-                                scale: 13,
-                              }}
-                              particleCount={200}
-                              particleSize={5}
-                              particleShape="circle"
-                              particleColor="original"
-                              hoverEnabled={false}
-                              repulsionEnabled={true}
-                              repulsionConfig={{
-                                repulsionForce: 8.5,
-                                repulsionRadius: 75,
-                                repulsionMode: "outside",
-                              }}
-                            />
-                          </div>
-                        </Reveal>
+                        <button
+                          type="button"
+                          onClick={() => handleNavigate('/portfolio')}
+                          className="inline-flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--panel)]/80 px-6 py-3.5 text-[14px] font-nav font-semibold text-[var(--foreground)] hover:border-[#901a1d] hover:text-[#901a1d] transition-colors duration-200 cursor-pointer"
+                        >
+                          <span>Explore Portfolio</span>
+                          <ArrowUpRight className="w-4 h-4 text-[#901a1d]" />
+                        </button>
                       </div>
-                    )}
+
+                      <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--muted-foreground)]">
+                        <span className="inline-flex items-center gap-2 text-[var(--foreground)] font-medium">
+                          <ForgeMark className="w-4 h-4" />
+                          <span>Delhi, India</span>
+                        </span>
+                        <span>·</span>
+                        <span>No templates. Just craft.</span>
+                        <span>·</span>
+                        <span className="text-[#901a1d] font-semibold">10 Curated Works Below</span>
+                      </div>
+                    </Reveal>
                   </div>
 
-                  {/* Staggered Curated Showcase Grid (Shifted below hero & interactive logo) */}
-                  <div className="mt-16 sm:mt-20 lg:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 items-start">
+                  {/* Rising 5-Column Staggered Curated Showcase Grid (Diagonal Layout) */}
+                  <div className="mt-12 sm:mt-16 lg:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 items-start">
                     {curatedColumns.map((colProjects, colIdx) => (
                       <div
                         key={`col-${colIdx}`}
