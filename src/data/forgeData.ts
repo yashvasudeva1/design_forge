@@ -61,6 +61,8 @@ export interface ClientTestimonial {
   quote: string;
   role: string;
   rating: number;
+  likedMost?: string;
+  feedback?: string;
 }
 
 export interface FaqItem {
@@ -534,28 +536,49 @@ export const CLIENT_TESTIMONIALS: ClientTestimonial[] = [
     id: 'voice-1',
     quote:
       'Absolutely thrilled with the service! The team was professional, creative and attentive to every detail. They delivered ahead of time and even the smallest changes were made happily. Highly recommend their work to anyone looking for unique and high quality designs.',
+    likedMost:
+      'Absolutely thrilled with the service! The team was professional, creative and attentive to every detail. They delivered ahead of time and even the smallest changes were made happily.',
+    feedback:
+      'Highly recommend their work to anyone looking for unique and high quality designs',
     role: 'Verified Client · Logo Design',
     rating: 5,
   },
   {
     id: 'voice-2',
     quote:
+      'Couldn’t see any difficulty while coordinating with work, everything seems perfectly. Loved everything about the process.',
+    likedMost: 'Everything',
+    feedback:
       'Couldn’t see any difficulty while coordinating with work, everything seems perfectly.',
-    role: 'Verified Client · Brand Project',
+    role: 'Verified Client · Brand Coordination',
     rating: 5,
   },
   {
     id: 'voice-3',
     quote:
-      'Timely delivery and really great designs.',
-    role: 'Verified Client · Custom Commission',
+      'Discipline and commitment at the highest level. Everything was delivered to perfection.',
+    likedMost: 'Discipline and commitment',
+    feedback: 'Everything is perfect.',
+    role: 'Verified Client · Design Consultancy',
     rating: 5,
   },
   {
     id: 'voice-4',
     quote:
-      'Great designs — creative visual execution and very satisfied with the poster work.',
-    role: 'Verified Client · Poster Design',
+      'Timely delivery and really great designs. Prompt turnaround and attentive team on all printable collateral.',
+    likedMost: 'Timely delivery',
+    feedback:
+      'Can go through the final checkboxes twice before submitting the printable files.',
+    role: 'Verified Client · Print & Production',
+    rating: 5,
+  },
+  {
+    id: 'voice-5',
+    quote:
+      'Loved the designs — nothing to improve, very satisfied with the creative output and visual execution.',
+    likedMost: 'Designs',
+    feedback: 'Nothing',
+    role: 'Verified Client · Poster & Visual Identity',
     rating: 5,
   },
 ];

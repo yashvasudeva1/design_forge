@@ -179,28 +179,60 @@ export const ServicesAndValues: React.FC<ServicesAndValuesProps> = ({
         <div className="col-span-full mt-12 border-t border-[var(--border)] pt-12">
           <div className="flex items-center justify-between mb-8">
             <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--muted-foreground)]">
-              Client voices · 5.0★ verified project feedback
+              Client voices · 5.0★ verified project feedback &amp; reviews
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 sm:gap-6">
             {CLIENT_TESTIMONIALS.map((item) => (
               <blockquote
                 key={item.id}
-                className="flex flex-col justify-between border border-[var(--border)] bg-[var(--panel)] p-6 sm:p-7 transition-all duration-300 hover:border-[#901a1d]/40"
+                className="flex flex-col justify-between border border-[var(--border)] bg-[var(--panel)] p-5 sm:p-6 transition-all duration-300 hover:border-[#901a1d]/50 shadow-xs"
               >
                 <div>
-                  <div
-                    aria-label={`${item.rating} out of 5 stars`}
-                    className="font-mono text-xs tracking-widest text-[var(--command)] mb-4"
-                  >
-                    ★★★★★
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <div
+                      aria-label={`${item.rating} out of 5 stars`}
+                      className="font-mono text-xs tracking-widest text-[var(--command)]"
+                    >
+                      ★★★★★
+                    </div>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-[#901a1d]/10 text-[#901a1d] font-semibold">
+                      Verified
+                    </span>
                   </div>
-                  <p className="font-display text-[17px] sm:text-[18px] leading-[1.4] tracking-[-0.01em] text-[var(--foreground)]">
+
+                  <p className="font-display text-[15px] sm:text-[16px] leading-[1.42] tracking-[-0.01em] text-[var(--foreground)]">
                     “{item.quote}”
                   </p>
+
+                  {(item.likedMost || item.feedback) && (
+                    <div className="mt-4 pt-3 border-t border-[var(--border)]/40 space-y-2.5 text-[11px] font-mono">
+                      {item.likedMost && (
+                        <div>
+                          <span className="text-[#901a1d] font-semibold uppercase tracking-[0.08em] block text-[9px]">
+                            Liked Most:
+                          </span>
+                          <span className="text-[var(--muted-foreground)] line-clamp-3 leading-snug">
+                            {item.likedMost}
+                          </span>
+                        </div>
+                      )}
+                      {item.feedback && item.feedback !== 'Nothing' && (
+                        <div>
+                          <span className="text-[var(--muted-foreground)]/80 font-semibold uppercase tracking-[0.08em] block text-[9px]">
+                            Feedback:
+                          </span>
+                          <span className="text-[var(--muted-foreground)] line-clamp-3 leading-snug">
+                            {item.feedback}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
-                <footer className="mt-6 pt-4 border-t border-[var(--border)]/60 font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--muted-foreground)]">
+
+                <footer className="mt-5 pt-3 border-t border-[var(--border)]/60 font-mono text-[10px] uppercase tracking-[0.08em] text-[var(--muted-foreground)]">
                   {item.role}
                 </footer>
               </blockquote>

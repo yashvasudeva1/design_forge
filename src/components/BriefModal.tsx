@@ -34,6 +34,8 @@ export const BriefModal: React.FC<BriefModalProps> = ({
   const [message, setMessage] = useState(initialNote);
   const [errors, setErrors] = useState<BriefValidationErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [dossierRef, setDossierRef] = useState('DF-2026-8410');
   const [copiedRef, setCopiedRef] = useState(false);
   const [attachedToast, setAttachedToast] = useState<string | null>(null);
@@ -111,7 +113,7 @@ export const BriefModal: React.FC<BriefModalProps> = ({
     setCompany(norm.company || '');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = validateProjectBrief({
       name,
@@ -131,11 +133,46 @@ export const BriefModal: React.FC<BriefModalProps> = ({
     setCompany(result.normalized.company || '');
     setMessage(result.normalized.message);
     setErrors({});
+    setSubmitting(true);
+    setSubmitError('');
 
     const codeNum = 1000 + ((result.normalized.name.length * 137 + result.normalized.message.length * 43) % 8999);
-    setDossierRef(`DF-2026-${codeNum}`);
-    setSubmitted(true);
-    if (onSubmittedCountChange) onSubmittedCountChange();
+    const refCode = `DF-2026-${codeNum}`;
+
+    try {
+      const res = await fetch('https://formspree.io/f/mgozjwpg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: result.normalized.name,
+          email: result.normalized.email,
+          company: result.normalized.company || 'Not specified',
+          service,
+          timeline: timelinePref,
+          message: result.normalized.message,
+          dossierRef: refCode,
+          _subject: `New Design Forge Intake (${refCode}): ${service} from ${result.normalized.name}`,
+        }),
+      });
+
+      if (res.ok) {
+        setDossierRef(refCode);
+        setSubmitted(true);
+        if (onSubmittedCountChange) onSubmittedCountChange();
+      } else {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || 'Formspree transmission failed');
+      }
+    } catch {
+      setSubmitError(
+        'Failed to transmit brief. Please try again or email us directly at designforge250@gmail.com.'
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleCopyRef = () => {
@@ -529,11 +566,17 @@ export const BriefModal: React.FC<BriefModalProps> = ({
 
                 <button
                   type="submit"
-                  className="w-full min-h-[48px] flex items-center justify-center gap-2 bg-[#901a1d] text-white font-nav font-bold text-[12px] uppercase tracking-[0.14em] px-5 py-3.5 hover:bg-black dark:hover:bg-white dark:hover:text-black transition-colors duration-150 cursor-pointer"
+                  disabled={submitting}
+                  className="w-full min-h-[48px] flex items-center justify-center gap-2 bg-[#901a1d] text-white font-nav font-bold text-[12px] uppercase tracking-[0.14em] px-5 py-3.5 hover:bg-black dark:hover:bg-white dark:hover:text-black disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-150 cursor-pointer"
                 >
-                  <span>Send Message</span>
+                  <span>{submitting ? 'Transmitting to Studio...' : 'Send Message'}</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
+                {submitError && (
+                  <p className="font-mono text-[11px] text-[#901a1d] text-center leading-relaxed">
+                    {submitError}
+                  </p>
+                )}
               </form>
             )}
           </div>

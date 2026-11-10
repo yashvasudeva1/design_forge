@@ -633,8 +633,10 @@ export const ContactPage: React.FC<{
     Partial<Record<'name' | 'email' | 'service' | 'message', string>>
   >({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const validation = validateProjectBrief({ name, email, service, message });
     if (!validation.valid) {
@@ -642,7 +644,39 @@ export const ContactPage: React.FC<{
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const res = await fetch('https://formspree.io/f/mgozjwpg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          company: company || 'Not specified',
+          service,
+          message,
+          _subject: `New Design Forge Intake: ${service} from ${name}`,
+        }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || 'Formspree submission failed');
+      }
+    } catch {
+      setSubmitError(
+        'Unable to send message right now. Please email us directly at designforge250@gmail.com or WhatsApp +91 93183 78900.'
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -821,13 +855,19 @@ export const ContactPage: React.FC<{
 
                 <button
                   type="submit"
-                  className="group w-full inline-flex items-center justify-between rounded-full bg-[#901a1d] pl-6 pr-2 py-2.5 text-[14px] font-nav font-semibold text-white hover:bg-[#141413] transition-colors cursor-pointer shadow-[0_12px_28px_rgba(144,26,29,0.22)]"
+                  disabled={submitting}
+                  className="group w-full inline-flex items-center justify-between rounded-full bg-[#901a1d] pl-6 pr-2 py-2.5 text-[14px] font-nav font-semibold text-white hover:bg-[#141413] disabled:opacity-60 disabled:cursor-not-allowed transition-colors cursor-pointer shadow-[0_12px_28px_rgba(144,26,29,0.22)]"
                 >
-                  <span>Send Message</span>
+                  <span>{submitting ? 'Transmitting to Studio...' : 'Send Message'}</span>
                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#141413] text-white group-hover:bg-white group-hover:text-[#141413] transition-colors">
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </button>
+                {submitError && (
+                  <p className="mt-2 font-mono text-[12px] text-[#901a1d] text-center leading-relaxed">
+                    {submitError}
+                  </p>
+                )}
               </form>
             )}
           </div>
