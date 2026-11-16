@@ -15,7 +15,7 @@ const DISCOVERY_LENSES = [
     metric: 'Optical & Chromatic Review',
     axisLabel: 'OPTICAL LEGIBILITY · 16PX TO BILLBOARD',
     glyphPair: 'Aa',
-    typeSpec: 'Syne · Instrument Serif · Plus Jakarta Sans',
+    typeSpec: 'Bricolage Grotesque · Fraunces · Plus Jakarta Sans',
     summary:
       'Evaluates existing marks, typographic hierarchy, and substrate legibility across print and digital touchpoints.',
     findings: [

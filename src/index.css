@@ -113,13 +113,12 @@
 }
 
 .font-display {
-  font-family: 'Syne', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
 }
 
 .font-editorial {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Fraunces', Georgia, serif;
 }
 
 .font-sans {
@@ -131,9 +130,7 @@
 }
 
 .font-mono {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-feature-settings: 'tnum' 1;
-  letter-spacing: 0.04em;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* Updraft Topographic Weather/Contour Card Pattern */
