@@ -49,16 +49,16 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full pt-4 pb-2 px-4 sm:px-6 lg:px-10 pointer-events-none">
+    <header className="sticky top-0 z-40 w-full pt-3 sm:pt-4 pb-2 px-3.5 sm:px-6 lg:px-10 pointer-events-none">
       <div className="mx-auto w-full max-w-[1380px] pointer-events-auto">
         <div
-          className={`flex h-15 sm:h-16 w-full items-center justify-between gap-3 sm:gap-8 rounded-full border border-black/10 px-3.5 sm:px-7 transition-all duration-300 ${
+          className={`flex h-14 sm:h-16 w-full items-center justify-between gap-2 sm:gap-8 rounded-full border border-black/10 dark:border-white/10 px-4 sm:px-7 transition-all duration-300 ${
             scrolled
-              ? 'bg-white/95 backdrop-blur-xl shadow-[0_14px_34px_rgba(20,20,19,0.10)]'
-              : 'bg-white/90 backdrop-blur-md shadow-[0_8px_24px_rgba(20,20,19,0.06)]'
+              ? 'bg-white/95 dark:bg-[#141413]/95 backdrop-blur-xl shadow-[0_14px_34px_rgba(20,20,19,0.10)]'
+              : 'bg-white/90 dark:bg-[#141413]/90 backdrop-blur-md shadow-[0_8px_24px_rgba(20,20,19,0.06)]'
           }`}
         >
-          {/* Zone 1: Actual Uploaded Design Forge Horizontal Brand Kit Logo */}
+          {/* Zone 1: Actual Uploaded Design Forge Horizontal Brand Kit Logo (Tight Crop) */}
           <a
             href="/"
             onClick={(e) => handleLinkClick(e, '/')}
@@ -66,9 +66,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center shrink-0 focus-visible:ring-2 focus-visible:ring-[#901a1d] focus-visible:outline-none group"
           >
             <img
-              src="/assets/aistudio/Design_Forge_Brand_Kit_fb5ce520.png"
+              src="/assets/aistudio/Design_Forge_Brand_Kit_tight.png"
               alt="Design Forge - Forging Ideas Into Reality"
-              className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-7 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
               draggable={false}
             />
           </a>
@@ -89,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className={`group relative overflow-hidden py-1 whitespace-nowrap shrink-0 transition-colors ${
                     isActive
                       ? 'text-[#901a1d] font-semibold'
-                      : 'text-[#141413]/80 hover:text-[#141413]'
+                      : 'text-[#141413]/80 dark:text-white/80 hover:text-[#141413] dark:hover:text-white'
                   }`}
                 >
                   <span className="block transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-full">
@@ -114,10 +114,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => onStartProject()}
-              className="group inline-flex items-center gap-2 sm:gap-3 rounded-full bg-[#901a1d] hover:bg-[#141413] dark:hover:bg-white dark:hover:text-[#141413] text-white pl-3.5 sm:pl-5 pr-1 sm:pr-1.5 py-1 sm:py-1.5 text-[12px] sm:text-[13px] font-semibold tracking-[-0.01em] transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer shadow-[0_6px_18px_rgba(144,26,29,0.25)] active:scale-95"
+              className="group inline-flex items-center gap-2 sm:gap-3 rounded-full bg-[#901a1d] hover:bg-[#141413] dark:hover:bg-white dark:hover:text-[#141413] text-white pl-3.5 sm:pl-5 pr-1.5 sm:pr-1.5 py-1 sm:py-1.5 text-[11.5px] sm:text-[13px] font-semibold tracking-[-0.01em] transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer shadow-[0_6px_18px_rgba(144,26,29,0.25)] active:scale-95"
             >
               <span>Start a project</span>
-              <span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#141413] text-white dark:group-hover:bg-[#901a1d] transition-transform duration-200 group-hover:rotate-12">
+              <span className="inline-flex h-6.5 w-6.5 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#141413] text-white dark:group-hover:bg-[#901a1d] transition-transform duration-200 group-hover:rotate-12">
                 <svg
                   viewBox="0 0 16 16"
                   fill="none"
@@ -137,10 +137,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
 
-        {/* Mobile Route Bar with Momentum Touch Scroll */}
+        {/* Mobile Route Bar - Perfectly distributed 5 columns, 100% complete options visible with zero cutoff */}
         <nav
           aria-label="Mobile page navigation"
-          className="mt-2 flex md:hidden items-center justify-between gap-1 overflow-x-auto scrollbar-none rounded-full border border-[var(--border)] bg-[var(--panel)]/95 backdrop-blur-md px-2 py-1 text-[12px] font-medium shadow-[var(--elev-1)] touch-scroll"
+          className="mt-2 grid grid-cols-5 md:hidden w-full items-center rounded-full border border-[var(--border)] bg-[var(--panel)]/95 backdrop-blur-md p-1 shadow-[var(--elev-1)]"
         >
           {NAV_PAGES.map((item) => {
             const isActive = currentPage === item.path;
@@ -149,10 +149,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={item.path}
                 href={item.path}
                 onClick={(e) => handleLinkClick(e, item.path)}
-                className={`rounded-full px-3 py-1.5 min-h-[36px] flex items-center justify-center whitespace-nowrap shrink-0 transition-colors active:scale-95 ${
+                className={`rounded-full py-1.5 px-0.5 min-h-[34px] flex items-center justify-center text-center text-[11px] sm:text-[12px] whitespace-nowrap transition-all duration-150 active:scale-95 ${
                   isActive
                     ? 'bg-[#901a1d] text-white font-semibold shadow-xs'
-                    : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)]'
+                    : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)] font-medium'
                 }`}
               >
                 {item.label}

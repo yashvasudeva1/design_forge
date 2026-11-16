@@ -15,7 +15,7 @@ const DISCOVERY_LENSES = [
     metric: 'Optical & Chromatic Review',
     axisLabel: 'OPTICAL LEGIBILITY · 16PX TO BILLBOARD',
     glyphPair: 'Aa',
-    typeSpec: 'Bricolage Grotesque · Fraunces · Plus Jakarta Sans',
+    typeSpec: 'Syne · Instrument Serif · Plus Jakarta Sans',
     summary:
       'Evaluates existing marks, typographic hierarchy, and substrate legibility across print and digital touchpoints.',
     findings: [
@@ -281,7 +281,7 @@ export const ProcessDeck: React.FC<ProcessDeckProps> = ({ onStartProject }) => {
                 <p className="max-w-[420px] text-[15px] leading-[1.55] text-[var(--muted-foreground)] lg:text-right">
                   Three acts, zero mystery. Scroll and watch a raw idea move from studio research to a timeless brand identity.
                 </p>
-                <div className="flex items-center gap-2 overflow-x-auto scrollbar-none max-w-full pb-1 touch-scroll">
+                <div className="flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-2 max-w-full pb-1">
                   {stageTitles.map((label, idx) => {
                     const active = activeStageIndex === idx;
                     return (
@@ -290,7 +290,7 @@ export const ProcessDeck: React.FC<ProcessDeckProps> = ({ onStartProject }) => {
                         type="button"
                         aria-label={`Jump to ${label}`}
                         onClick={() => scrollToStage(idx)}
-                        className={`rounded-full px-3.5 py-1.5 font-mono text-[11px] transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                        className={`rounded-full px-3 py-1.5 font-mono text-[11px] transition-all duration-200 cursor-pointer whitespace-nowrap ${
                           active
                             ? 'bg-[#901a1d] text-white font-semibold shadow-sm'
                             : 'bg-[var(--panel)] text-[var(--muted-foreground)] border border-[var(--border)] hover:text-[var(--foreground)]'

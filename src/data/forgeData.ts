@@ -60,6 +60,7 @@ export interface ClientTestimonial {
   id: string;
   quote: string;
   role: string;
+  company: string;
   rating: number;
   likedMost?: string;
   feedback?: string;
@@ -540,7 +541,8 @@ export const CLIENT_TESTIMONIALS: ClientTestimonial[] = [
       'Absolutely thrilled with the service! The team was professional, creative and attentive to every detail. They delivered ahead of time and even the smallest changes were made happily.',
     feedback:
       'Highly recommend their work to anyone looking for unique and high quality designs',
-    role: 'Verified Client · Logo Design',
+    company: 'Private Client',
+    role: 'Logo Design',
     rating: 5,
   },
   {
@@ -550,7 +552,8 @@ export const CLIENT_TESTIMONIALS: ClientTestimonial[] = [
     likedMost: 'Everything',
     feedback:
       'Couldn’t see any difficulty while coordinating with work, everything seems perfectly.',
-    role: 'Verified Client · Brand Coordination',
+    company: 'Namespace BPIT',
+    role: 'Brand Coordination',
     rating: 5,
   },
   {
@@ -559,7 +562,8 @@ export const CLIENT_TESTIMONIALS: ClientTestimonial[] = [
       'Discipline and commitment at the highest level. Everything was delivered to perfection.',
     likedMost: 'Discipline and commitment',
     feedback: 'Everything is perfect.',
-    role: 'Verified Client · Design Consultancy',
+    company: 'Private Client',
+    role: 'Design Consultancy',
     rating: 5,
   },
   {
@@ -569,7 +573,8 @@ export const CLIENT_TESTIMONIALS: ClientTestimonial[] = [
     likedMost: 'Timely delivery',
     feedback:
       'Can go through the final checkboxes twice before submitting the printable files.',
-    role: 'Verified Client · Print & Production',
+    company: 'Darima',
+    role: 'Print & Production',
     rating: 5,
   },
   {
@@ -578,7 +583,8 @@ export const CLIENT_TESTIMONIALS: ClientTestimonial[] = [
       'Loved the designs — nothing to improve, very satisfied with the creative output and visual execution.',
     likedMost: 'Designs',
     feedback: 'Nothing',
-    role: 'Verified Client · Poster & Visual Identity',
+    company: 'Aggarwal Living',
+    role: 'Poster & Visual Identity',
     rating: 5,
   },
 ];

@@ -227,7 +227,7 @@ export const TroveFooter: React.FC<TroveFooterProps> = ({
               textLength="1192"
               lengthAdjust="spacingAndGlyphs"
               style={{
-                fontFamily: "'Fraunces', Georgia, serif",
+                fontFamily: "'Syne', 'Plus Jakarta Sans', sans-serif",
                 fontSize: '134px',
                 fontWeight: 600,
                 letterSpacing: '-0.01em',

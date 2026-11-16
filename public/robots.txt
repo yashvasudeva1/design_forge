@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://designforge.studio/sitemap.xml
+Sitemap: https://the-design-forge.vercel.app/sitemap.xml

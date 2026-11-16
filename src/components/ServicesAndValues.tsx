@@ -232,8 +232,11 @@ export const ServicesAndValues: React.FC<ServicesAndValuesProps> = ({
                   )}
                 </div>
 
-                <footer className="mt-5 pt-3 border-t border-[var(--border)]/60 font-mono text-[10px] uppercase tracking-[0.08em] text-[var(--muted-foreground)]">
-                  {item.role}
+                <footer className="mt-5 pt-3 border-t border-[var(--border)]/60 text-[11px] leading-snug">
+                  <div className="font-semibold text-[var(--foreground)]">{item.company}</div>
+                  <div className="text-[10px] text-[var(--muted-foreground)] uppercase tracking-[0.08em] mt-0.5">
+                    {item.role}
+                  </div>
                 </footer>
               </blockquote>
             ))}
