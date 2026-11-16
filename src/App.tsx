@@ -469,9 +469,18 @@ export default function App() {
                               “{item.quote}”
                             </p>
                           </div>
-                          <footer className="mt-8 pt-4 border-t border-[var(--border)] flex items-center justify-between text-[13px] text-[var(--muted-foreground)]">
-                            <span className="text-[var(--foreground)] font-semibold">{item.role}</span>
-                            <span className="font-editorial italic text-[#901a1d]">Delhi Studio</span>
+                          <footer className="mt-8 pt-4 border-t border-[var(--border)] flex items-end justify-between gap-4">
+                            <div>
+                              <div className="text-[var(--foreground)] font-bold text-[15px] sm:text-[16px] tracking-[-0.01em]">
+                                {item.company}
+                              </div>
+                              <div className="text-[12px] text-[var(--muted-foreground)] mt-0.5">
+                                {item.role}
+                              </div>
+                            </div>
+                            <span className="font-editorial italic text-[#901a1d] text-sm shrink-0">
+                              Delhi Studio
+                            </span>
                           </footer>
                         </blockquote>
                       </Reveal>
